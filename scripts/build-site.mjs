@@ -6,15 +6,10 @@ const siteUrl = "https://www.trust-entruempelung-berlin.de";
 const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "[E-Mail-Adresse einsetzen]";
+const formEmail = "entruempelung@trust-bm-service.de";
 
 const nav = [
   ["Startseite", "/"],
-  ["Entrümpelung Berlin", "/entruempelung-berlin/"],
-  ["Wohnungsauflösung", "/wohnungsaufloesung-berlin/"],
-  ["Haushaltsauflösung", "/haushaltsaufloesung-berlin/"],
-  ["Nachlassauflösung", "/nachlassaufloesung-berlin/"],
-  ["Firmenauflösung", "/firmenaufloesung-berlin/"],
-  ["Leistungen", "/entruempelung-berlin/#leistungen"],
   ["Preise", "/preise/"],
   ["Einsatzgebiete", "/#einsatzgebiete"],
   ["Kontakt", "/kontakt/"],
@@ -389,14 +384,49 @@ function navHtml() {
   return nav.map(([label, href]) => `<a href="${href}">${esc(label)}</a>`).join("");
 }
 
+function serviceNavHtml() {
+  return services.map((service) => `<a href="/${service.slug}/">${esc(service.short)}</a>`).join("");
+}
+
+function desktopNavHtml() {
+  return `<a href="/">Startseite</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-button" type="button" aria-haspopup="true">Leistungen</button>
+      <div class="nav-dropdown-panel">
+        ${serviceNavHtml()}
+      </div>
+    </div>
+    <a href="/preise/">Preise</a>
+    <a href="/#einsatzgebiete">Einsatzgebiete</a>
+    <a href="/kontakt/">Kontakt</a>`;
+}
+
+function mobileNavHtml() {
+  return `<a href="/">Startseite</a>
+    <strong class="mobile-nav-label">Leistungen</strong>
+    ${serviceNavHtml()}
+    <a href="/preise/">Preise</a>
+    <a href="/#einsatzgebiete">Einsatzgebiete</a>
+    <a href="/kontakt/">Kontakt</a>`;
+}
+
 function headerHtml() {
   return `<header class="site-header">
+    <div class="top-strip">
+      <div class="container-wide top-strip-inner">
+        <span><strong>Berlin direkt:</strong> Fotos senden, Umfang klären, Termin planen</span>
+        <div class="top-strip-links">
+          <a href="tel:${phone}">Telefon: ${phone}</a>
+          <a href="https://wa.me/${whatsapp}">WhatsApp Anfrage</a>
+          <span>Mo-Sa nach Absprache</span>
+        </div>
+      </div>
+    </div>
     <div class="container-wide header-inner">
       <a class="brand" href="/" aria-label="Trust Entrümpelung Berlin Startseite">
-        <span class="brand-mark">T</span>
-        <span>Trust Entrümpelung<small>Berlin</small></span>
+        <img class="brand-logo" src="/assets/logo.svg" alt="Trust Entrümpelung Berlin">
       </a>
-      <nav class="desktop-nav" aria-label="Hauptnavigation">${navHtml()}</nav>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">${desktopNavHtml()}</nav>
       <div class="header-actions">
         <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
         <a class="button button-primary" href="/kontakt/">Kostenlose Ersteinschätzung</a>
@@ -408,7 +438,7 @@ function headerHtml() {
         <a href="tel:${phone}">Anrufen</a>
         <a href="https://wa.me/${whatsapp}">WhatsApp</a>
         <a href="/kontakt/">Kostenlose Ersteinschätzung</a>
-        ${navHtml()}
+        ${mobileNavHtml()}
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </nav>
@@ -423,26 +453,34 @@ function breadcrumbHtml(page) {
 
 function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenreiner Übergabe") {
   return `<section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Trust Entrümpelung Berlin</span>
-        <h1>${esc(page.h1)}</h1>
-        <p class="lead">${esc(text)}</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="/kontakt/">Kostenlose Ersteinschätzung anfragen</a>
-          <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
-          <a class="button button-secondary" href="https://wa.me/${whatsapp}">Fotos per WhatsApp senden</a>
+    <div class="container-wide hero-shell">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Berliner Entrümpelungsfirma</span>
+          <h1>${esc(page.h1)}</h1>
+          <p class="lead">${esc(text)}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/kontakt/">Kostenlose Besichtigung anfragen</a>
+            <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
+            <a class="button button-whatsapp" href="https://wa.me/${whatsapp}">Fotos per WhatsApp senden</a>
+          </div>
+          <ul class="hero-points">
+            <li>Festpreis nach Einschätzung</li>
+            <li>Räumung, Transport, Entsorgung</li>
+            <li>Besenreine Übergabe möglich</li>
+          </ul>
         </div>
-        <ul class="hero-points">
-          <li>Festpreis nach Einschätzung</li>
-          <li>Besenreine Übergabe möglich</li>
-          <li>Berlin im Fokus</li>
-        </ul>
-      </div>
-      <div class="image-placeholder">
-        <span>Bildidee</span>
-        <strong>${esc(image)}</strong>
-        <div class="process-card"><strong>Heute sinnvoll starten</strong><p>Fotos senden, Umfang klären, Termin planen.</p></div>
+        <aside class="quote-panel" aria-label="Kostenlose Ersteinschätzung">
+          <h2>Festpreis vorbereiten</h2>
+          <p>Wie bei einer kurzen Online-Besichtigung: Fotos und Eckdaten reichen oft für die erste Einschätzung.</p>
+          <ol class="quote-steps">
+            <li><span>1</span>Bezirk, Etage und Fahrstuhl nennen</li>
+            <li><span>2</span>Fotos von Räumen und Gegenständen senden</li>
+            <li><span>3</span>Umfang prüfen und Termin abstimmen</li>
+          </ol>
+          <a class="button button-primary" href="/kontakt/">Anfrage starten</a>
+          <div class="hero-photo-note">Bildidee: ${esc(image)}</div>
+        </aside>
       </div>
     </div>
   </section>`;
@@ -454,13 +492,13 @@ function trustBarHtml() {
 
 function servicesGridHtml() {
   return `<section id="leistungen" class="section-soft"><div class="container">
-    <div class="section-intro"><h2>Unsere Leistungen für Entrümpelung und Auflösung in Berlin</h2><p>Die Leistungsseiten führen tiefer in die jeweilige Situation. So finden Besucher nicht nur eine allgemeine Entrümpelungsfirma Berlin, sondern genau den passenden nächsten Schritt.</p></div>
+    <div class="section-intro"><h2>Was soll in Berlin geräumt werden?</h2><p>Nach dem Muster guter Entrümpelungsseiten führen die Kacheln direkt zur passenden Situation: Wohnung, Keller, Dachboden, Garage, Sperrmüll, Nachlass oder Gewerbe.</p></div>
     <div class="grid-3">${services.map((service) => `<article class="card">
-      <span class="card-kicker">Leistung</span>
+      <span class="card-kicker">Berlin Service</span>
       <h3>${esc(service.short)}</h3>
       <p>${esc(service.intro)}</p>
       <ul class="mini-list"><li>Festpreis nach Einschätzung</li><li>Transport und Entsorgung</li><li>Besenreine Übergabe möglich</li></ul>
-      <a class="card-link" href="/${service.slug}/">${esc(service.short)} ansehen</a>
+      <a class="card-link" href="/${service.slug}/">Details und Ablauf ansehen</a>
     </article>`).join("")}</div>
   </div></section>`;
 }
@@ -512,8 +550,46 @@ function faqHtml(page) {
 function ctaHtml(page) {
   return `<section><div class="container"><div class="cta-panel">
     <div><h2>Kostenlose Ersteinschätzung für Ihre ${esc(page.keyword)}</h2><p>Senden Sie Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit und gewünschten Zeitraum. Wir prüfen den Umfang und melden uns mit einer klaren Einschätzung zurück.</p></div>
-    <div class="cta-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-secondary" href="https://wa.me/${whatsapp}">WhatsApp senden</a><a class="button button-secondary" href="/kontakt/">Formular nutzen</a></div>
+    <div class="cta-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp senden</a><a class="button button-secondary" href="#anfrageformular">Formular nutzen</a></div>
   </div></div></section>`;
+}
+
+function inquiryFormHtml(page) {
+  const serviceOptions = [
+    page.keyword,
+    ...services.map((service) => service.short),
+    "Sonstiges",
+  ].filter((value, index, list) => list.indexOf(value) === index);
+
+  return `<section id="anfrageformular" class="inquiry-section"><div class="container inquiry-layout">
+    <div class="inquiry-note">
+      <span class="eyebrow">Anfrageformular</span>
+      <h2>Kurze Anfrage für ${esc(page.keyword)}</h2>
+      <p>Das Formular steht direkt auf der Seite, damit Besucher nicht erst zur Kontaktseite wechseln müssen. Für eine schnelle Einschätzung helfen Fotos, Bezirk, Etage, Fahrstuhl und der gewünschte Zeitraum.</p>
+      <ul class="mini-list"><li>Telefonische Rückmeldung möglich</li><li>WhatsApp-Fotos ergänzend senden</li><li>Festpreis nach Umfang und Zugang</li></ul>
+    </div>
+    <form class="inquiry-form" action="/kontaktformular.php" method="post" enctype="multipart/form-data">
+      <h2>Anfrage senden</h2>
+      <p>Die Anfrage wird direkt an ${formEmail} gesendet. Nach dem Absenden erscheint eine Bestätigung.</p>
+      <input type="hidden" name="source_page" value="${esc(page.keyword)}">
+      <label class="hp-field">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="form-grid">
+        <label>Name<input name="name" autocomplete="name"></label>
+        <label>Telefon<input name="phone" autocomplete="tel"></label>
+        <label>E-Mail<input name="email" type="email" autocomplete="email"></label>
+        <label>Bezirk / Adresse<input name="area"></label>
+        <label>Welche Leistung?<select name="service">${serviceOptions.map((option) => `<option>${esc(option)}</option>`).join("")}</select></label>
+        <label>Etage / Fahrstuhl<input name="floor" placeholder="z. B. 3. OG, kein Fahrstuhl"></label>
+        <label class="span-2">Kurzbeschreibung<textarea name="message" placeholder="Was soll geräumt werden? Gibt es Keller, Dachboden, Garage oder Sperrmüll?"></textarea></label>
+        <label>Wunschtermin<input name="date"></label>
+        <label>Fotos<input name="photos" type="file" multiple></label>
+      </div>
+      <div class="form-actions">
+        <button class="button button-primary" type="submit">Anfrage absenden</button>
+      </div>
+      <p>Datenschutz-Hinweis: Die Angaben werden zur Bearbeitung Ihrer Anfrage an ${formEmail} übermittelt.</p>
+    </form>
+  </div></section>`;
 }
 
 function internalLinksHtml(page) {
@@ -527,7 +603,7 @@ function internalLinksHtml(page) {
 function footerHtml() {
   return `<footer class="site-footer"><div class="container-wide">
     <div class="footer-grid">
-      <div><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: ${phone}<br>WhatsApp: ${whatsapp}<br>E-Mail: ${email}</p></div>
+      <div><img class="footer-logo" src="/assets/logo.svg" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: ${phone}<br>WhatsApp: ${whatsapp}<br>E-Mail: ${email}</p></div>
       <div><div class="footer-title">Leistungen</div><a href="/entruempelung-berlin/">Entrümpelung Berlin</a><a href="/wohnungsaufloesung-berlin/">Wohnungsauflösung Berlin</a><a href="/haushaltsaufloesung-berlin/">Haushaltsauflösung Berlin</a><a href="/nachlassaufloesung-berlin/">Nachlassauflösung Berlin</a><a href="/firmenaufloesung-berlin/">Firmenauflösung Berlin</a><a href="/sperrmuellabholung-berlin/">Sperrmüllabholung Berlin</a></div>
       <div><div class="footer-title">Räume & Spezialfälle</div><a href="/kellerentruempelung-berlin/">Kellerentrümpelung Berlin</a><a href="/dachbodenentruempelung-berlin/">Dachbodenentrümpelung Berlin</a><a href="/garagenentruempelung-berlin/">Garagenentrümpelung Berlin</a><a href="/moebeltransport-berlin/">Möbeltransport Berlin</a><a href="/kleine-umzuege-berlin/">Kleine Umzüge Berlin</a><a href="/entruempelung-berlin/">Messie-Wohnung entrümpeln</a></div>
       <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Gesundbrunnen</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Prenzlauer Berg</a><a href="/#einsatzgebiete">Reinickendorf</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/#einsatzgebiete">Brandenburg / Berliner Umland</a></div>
@@ -535,13 +611,13 @@ function footerHtml() {
     </div>
     <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Platzhalterdaten vor Livegang ersetzen.</span></div>
   </div></footer>
-  <div class="mobile-callbar"><a class="button button-secondary" href="tel:${phone}">Anrufen</a><a class="button button-primary" href="https://wa.me/${whatsapp}">WhatsApp</a></div>`;
+  <div class="mobile-callbar"><a class="button button-secondary" href="tel:${phone}">Anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp</a></div>`;
 }
 
 function schema(page) {
   const pageUrl = absoluteUrl(page.slug);
   const graph = [
-    {"@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, logo: `${siteUrl}/assets/logo.png`},
+    {"@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, logo: `${siteUrl}/assets/logo.svg`},
     {"@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, areaServed: ["Berlin", "Potsdam", "Falkensee", "Bernau", "Teltow", "Oranienburg", "Hohen Neuendorf"], serviceType: services.map((item) => item.keyword)},
     {"@type": "WebPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: page.title, description: page.description},
     {"@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumb`, itemListElement: [
@@ -569,7 +645,10 @@ function headHtml(page) {
   <title>${esc(page.title)}</title>
   <meta name="description" content="${esc(page.description)}">
   <link rel="canonical" href="${canonical}">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-6">
   ${schema(page)}`;
 }
 
@@ -584,6 +663,7 @@ function homeContent(page) {
     sensitiveHtml(),
     b2bHtml(),
     areasHtml(),
+    inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),
   ].join("");
@@ -599,6 +679,7 @@ function serviceContent(page) {
     costsHtml(page.keyword),
     `<section><div class="container split"><div><h2>${esc(page.compareTitle)}</h2><p>${esc(page.compareText)}</p></div><div class="card"><h3>Vor der Einschätzung hilfreich</h3><ul class="mini-list"><li>Fotos der Räume und Gegenstände</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
     internalLinksHtml(page),
+    inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),
   ].join("");
@@ -611,6 +692,7 @@ function pricesContent(page) {
     costsHtml("Entrümpelung in Berlin"),
     `<section><div class="container split"><div><h2>Selbst entsorgen oder Firma beauftragen?</h2><p>Selbstentsorgung kann sinnvoll sein, wenn wenige Gegenstände, Fahrzeug, Zeit und Helfer vorhanden sind. Eine Entrümpelungsfirma lohnt sich, wenn Tragewege, große Möbel, Entsorgung, Übergabedruck oder mehrere Räume zusammenkommen.</p></div><div class="card"><h3>Für den Festpreis relevant</h3><ul class="mini-list"><li>Wohnungsgröße und Menge</li><li>Etage, Fahrstuhl und Parkmöglichkeit</li><li>Demontage, Küche, Teppich oder Lampen</li><li>Sondermüll und Entsorgungsart</li><li>Wertanrechnung und Terminwunsch</li></ul></div></div></section>`,
     internalLinksHtml(page),
+    inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),
   ].join("");
@@ -620,7 +702,8 @@ function contactContent(page) {
   return [
     heroHtml(page, "Für den Entrümpelung Berlin Kontakt helfen Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit, gewünschter Zeitraum und eine kurze Beschreibung. So kann Trust den Umfang schneller einschätzen.", "Kontaktaufnahme mit Fotos und kurzer Objektbeschreibung"),
     trustBarHtml(),
-    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Telefon, WhatsApp und E-Mail sind als Platzhalter vorbereitet und müssen vor dem Livegang ersetzt werden.</p><ul class="mini-list"><li>Telefon: ${phone}</li><li>WhatsApp: ${whatsapp}</li><li>E-Mail: ${email}</li><li>Einsatzgebiet: Berlin, Brandenburg nach Absprache</li></ul></div><form class="card" action="#" method="post"><h2>Anfrageformular</h2><p>Formularplatzhalter: Vor Livegang mit echter Formulartechnik, Datenschutz und Upload-Lösung verbinden.</p><div class="form-grid"><label>Name<input name="name" autocomplete="name"></label><label>Telefon<input name="phone" autocomplete="tel"></label><label>E-Mail<input name="email" type="email" autocomplete="email"></label><label>Adresse / Bezirk<input name="area"></label><label>Welche Leistung?<select name="service"><option>Entrümpelung Berlin</option><option>Wohnungsauflösung Berlin</option><option>Haushaltsauflösung Berlin</option><option>Sperrmüllabholung Berlin</option></select></label><label>Etage / Fahrstuhl<input name="floor"></label><label class="span-2">Kurzbeschreibung<textarea name="message"></textarea></label><label class="span-2">Wunschtermin<input name="date"></label></div><p>Fotoupload-Hinweis: Fotos können nach technischer Einrichtung über das Formular oder per WhatsApp gesendet werden.</p></form></div></section>`,
+    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Telefon, WhatsApp und E-Mail sind als Platzhalter vorbereitet und müssen vor dem Livegang ersetzt werden.</p><ul class="mini-list"><li>Telefon: ${phone}</li><li>WhatsApp: ${whatsapp}</li><li>E-Mail: ${email}</li><li>Einsatzgebiet: Berlin, Brandenburg nach Absprache</li></ul><div class="hero-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp senden</a></div></div><div class="card"><h2>Was wir für die Einschätzung brauchen</h2><ul class="mini-list"><li>Fotos von Räumen und Gegenständen</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
+    inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),
   ].join("");
@@ -656,7 +739,7 @@ function render(page) {
     ${bodyContent(page)}
   </main>
   ${footerHtml()}
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=design-mix-6" defer></script>
 </body>
 </html>
 `;
