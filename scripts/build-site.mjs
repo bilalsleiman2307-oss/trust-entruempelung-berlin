@@ -5,9 +5,9 @@ const root = process.cwd();
 const siteUrl = "https://www.trust-entruempelung-berlin.de";
 const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
-const email = "[E-Mail-Adresse einsetzen]";
+const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-13";
+const assetVersion = "design-mix-14";
 
 const nav = [
   ["Startseite", "/"],
@@ -355,10 +355,9 @@ const trustItems = [
 ];
 
 const processSteps = [
-  ["Anfrage mit Fotos", "Senden Sie Fotos, Bezirk, Etage, Fahrstuhl und gewünschten Zeitraum."],
-  ["Einschätzung oder Besichtigung", "Wir prüfen Umfang, Zugang, Parkmöglichkeit und Entsorgungswege."],
-  ["Festpreis und Termin", "Nach klarer Einschätzung erhalten Sie einen nachvollziehbaren Festpreis."],
-  ["Räumung und Übergabe", "Wir räumen, sortieren, transportieren, entsorgen und übergeben auf Wunsch besenrein."],
+  ["Ihre Anfrage", "Senden Sie uns Fotos, Bezirk, Etage, Fahrstuhl und den gewünschten Zeitraum."],
+  ["Unser Angebot", "Wir prüfen Umfang, Zugang, Parkmöglichkeit und nennen nach Einschätzung einen klaren Festpreis."],
+  ["Die Umsetzung", "Wir räumen, sortieren, transportieren, entsorgen und übergeben auf Wunsch besenrein."],
 ];
 
 const costFactors = ["Menge & Volumen", "Etage & Fahrstuhl", "Parkmöglichkeit", "Demontage", "Entsorgungsart", "Sonderstoffe", "Wertanrechnung", "Terminwunsch"];
@@ -404,8 +403,10 @@ function desktopNavHtml() {
 
 function mobileNavHtml() {
   return `<a href="/">Startseite</a>
-    <strong class="mobile-nav-label">Leistungen</strong>
-    ${serviceNavHtml()}
+    <button class="mobile-submenu-button" type="button" aria-expanded="false" data-mobile-submenu-button>Leistungen</button>
+    <div class="mobile-submenu" data-mobile-submenu>
+      ${serviceNavHtml()}
+    </div>
     <a href="/preise/">Preise</a>
     <a href="/#einsatzgebiete">Einsatzgebiete</a>
     <a href="/kontakt/">Kontakt</a>`;
@@ -415,11 +416,10 @@ function headerHtml() {
   return `<header class="site-header">
     <div class="top-strip">
       <div class="container-wide top-strip-inner">
-        <span><strong>Berlin direkt:</strong> Fotos senden, Umfang klären, Termin planen</span>
         <div class="top-strip-links">
-          <a href="tel:${phone}">Telefon: ${phone}</a>
+          <a href="tel:${phone}">Jetzt anrufen</a>
           <a href="https://wa.me/${whatsapp}">WhatsApp Anfrage</a>
-          <span>Mo-Sa nach Absprache</span>
+          <a href="mailto:${email}">${email}</a>
         </div>
       </div>
     </div>
@@ -432,13 +432,10 @@ function headerHtml() {
         <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
         <a class="button button-primary" href="/kontakt/">Kostenlose Ersteinschätzung</a>
       </div>
-      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-menu-button><span></span><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-menu-button><span></span><span></span></button>
     </div>
     <div class="mobile-menu" data-mobile-menu>
       <nav aria-label="Mobile Navigation">
-        <a href="tel:${phone}">Anrufen</a>
-        <a href="https://wa.me/${whatsapp}">WhatsApp</a>
-        <a href="/kontakt/">Kostenlose Ersteinschätzung</a>
         ${mobileNavHtml()}
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
@@ -518,9 +515,10 @@ function servicesGridHtml() {
 }
 
 function processHtml(keyword = "Entrümpelung Berlin") {
-  return `<section id="ablauf"><div class="container split">
-    <div class="section-intro"><h2>So läuft eine ${esc(keyword)} mit Trust ab</h2><p>Der Ablauf ist bewusst klar gehalten: Erst wird der Umfang verstanden, dann wird ein belastbarer Preis genannt. Das schützt vor Missverständnissen bei Etage, Tragewegen, Entsorgung und Übergabetermin.</p><a class="button button-primary" href="/kontakt/">Festpreis nach Besichtigung erhalten</a></div>
-    <div class="timeline">${processSteps.map(([title, text], index) => `<div class="step"><span class="step-number">${index + 1}</span><div><h3>${esc(title)}</h3><p>${esc(text)}</p></div></div>`).join("")}</div>
+  return `<section id="ablauf" class="process-section"><div class="container">
+    <div class="section-intro section-intro-center"><h2>Unsere Vorgehensweise bei ${esc(keyword)}</h2><p>Der Ablauf ist klar gehalten: Anfrage, Einschätzung, Angebot und Umsetzung. So wissen Sie vor Beginn, was gemacht wird und welche Kosten entstehen.</p></div>
+    <div class="timeline process-band">${processSteps.map(([title, text], index) => `<div class="step"><span class="step-number">${index + 1}</span><div><h3>${esc(title)}</h3><p>${esc(text)}</p></div></div>`).join("")}</div>
+    <div class="process-action"><a class="button button-primary" href="/kontakt/">Festpreis nach Besichtigung erhalten</a></div>
   </div></section>`;
 }
 
@@ -623,7 +621,7 @@ function footerHtml() {
       <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Gesundbrunnen</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Prenzlauer Berg</a><a href="/#einsatzgebiete">Reinickendorf</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/#einsatzgebiete">Brandenburg / Berliner Umland</a></div>
       <div><div class="footer-title">Unternehmen</div><a href="/#leistungen">Über uns</a><a href="/#ablauf">Ablauf</a><a href="/preise/">Preise</a><a href="/kontakt/">Kontakt</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
     </div>
-    <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Platzhalterdaten vor Livegang ersetzen.</span></div>
+    <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Entrümpelung, Wohnungsauflösung und Sperrmüllabholung in Berlin.</span></div>
   </div></footer>
   <div class="mobile-callbar"><a class="button button-secondary" href="tel:${phone}">Anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp</a></div>`;
 }
@@ -670,7 +668,7 @@ function homeContent(page) {
   return [
     heroHtml(page, "Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen und Sperrmüllabholungen in ganz Berlin. Strukturiert geplant, transparent eingeschätzt und auf Wunsch besenrein übergeben."),
     homeSeoIntroHtml(),
-    `<section><div class="container"><div class="section-intro"><h2>Entrümpelung in Berlin mit Struktur, Festpreis und besenreiner Übergabe</h2><p>Nach drei Sekunden soll klar sein, was Trust macht: Räume frei machen, Hausrat sortieren, Möbel tragen, Sperrmüll entsorgen und Übergaben vorbereiten. Die Startseite gibt Orientierung, die Leistungsseiten erklären Details.</p></div><div class="grid-3"><div class="card"><h3>Wohnung leer räumen</h3><p>Für Auszug, Kündigung, Verkauf, Pflegeheim oder Nachlass mit abgestimmtem Übergabeziel.</p></div><div class="card"><h3>Keller, Dachboden und Garage</h3><p>Räume werden nicht nur leer, sondern nutzbar und auf Wunsch besenrein vorbereitet.</p></div><div class="card"><h3>Möbel und Sperrmüll</h3><p>Tragen, Transport und Entsorgung werden passend zum Umfang geplant.</p></div></div></div></section>`,
+    `<section class="home-method"><div class="container"><div class="section-intro section-intro-center"><h2>Entrümpelung in Berlin mit Struktur, Festpreis und besenreiner Übergabe</h2><p>Nach drei Sekunden soll klar sein, was Trust macht: Räume frei machen, Hausrat sortieren, Möbel tragen, Sperrmüll entsorgen und Übergaben vorbereiten.</p></div><div class="method-band"><div class="method-item"><span class="method-icon">1</span><h3>Wohnung leer räumen</h3><p>Für Auszug, Kündigung, Verkauf, Pflegeheim oder Nachlass mit abgestimmtem Übergabeziel.</p></div><div class="method-item"><span class="method-icon">2</span><h3>Keller, Dachboden und Garage</h3><p>Räume werden nicht nur leer, sondern nutzbar und auf Wunsch besenrein vorbereitet.</p></div><div class="method-item"><span class="method-icon">3</span><h3>Möbel und Sperrmüll</h3><p>Tragen, Transport und Entsorgung werden passend zum Umfang geplant.</p></div></div></div></section>`,
     servicesGridHtml(),
     processHtml("Entrümpelung Berlin"),
     costsHtml("Entrümpelung in Berlin"),
@@ -716,7 +714,7 @@ function contactContent(page) {
   return [
     heroHtml(page, "Für den Entrümpelung Berlin Kontakt helfen Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit, gewünschter Zeitraum und eine kurze Beschreibung. So kann Trust den Umfang schneller einschätzen.", "Kontaktaufnahme mit Fotos und kurzer Objektbeschreibung"),
     trustBarHtml(),
-    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Telefon, WhatsApp und E-Mail sind als Platzhalter vorbereitet und müssen vor dem Livegang ersetzt werden.</p><ul class="mini-list"><li>Telefon: ${phone}</li><li>WhatsApp: ${whatsapp}</li><li>E-Mail: ${email}</li><li>Einsatzgebiet: Berlin, Brandenburg nach Absprache</li></ul><div class="hero-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp senden</a></div></div><div class="card"><h2>Was wir für die Einschätzung brauchen</h2><ul class="mini-list"><li>Fotos von Räumen und Gegenständen</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
+    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Sie erreichen Trust Entrümpelung Berlin telefonisch, per WhatsApp oder per E-Mail. Für eine erste Einschätzung helfen Fotos, Bezirk, Etage und eine kurze Beschreibung.</p><ul class="mini-list"><li>Telefon: ${phone}</li><li>WhatsApp: ${whatsapp}</li><li>E-Mail: ${email}</li><li>Einsatzgebiet: Berlin, Brandenburg nach Absprache</li></ul><div class="hero-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp senden</a></div></div><div class="card"><h2>Was wir für die Einschätzung brauchen</h2><ul class="mini-list"><li>Fotos von Räumen und Gegenständen</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
     inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),

@@ -1,5 +1,7 @@
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
+const mobileSubmenuButton = document.querySelector("[data-mobile-submenu-button]");
+const mobileSubmenu = document.querySelector("[data-mobile-submenu]");
 
 if (menuButton && mobileMenu) {
   menuButton.addEventListener("click", () => {
@@ -16,4 +18,31 @@ if (menuButton && mobileMenu) {
       document.body.classList.remove("menu-open");
     }
   });
+}
+
+if (mobileSubmenuButton && mobileSubmenu) {
+  mobileSubmenuButton.addEventListener("click", () => {
+    const isOpen = mobileSubmenuButton.getAttribute("aria-expanded") === "true";
+    mobileSubmenuButton.setAttribute("aria-expanded", String(!isOpen));
+    mobileSubmenu.classList.toggle("is-open", !isOpen);
+  });
+}
+
+const animatedItems = document.querySelectorAll("main > section, .card, .method-item, .step, .cost-factor, .info-box");
+
+if ("IntersectionObserver" in window) {
+  animatedItems.forEach((item) => item.setAttribute("data-animate", ""));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  animatedItems.forEach((item) => observer.observe(item));
+} else {
+  animatedItems.forEach((item) => item.classList.add("is-visible"));
 }
