@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-15";
+const assetVersion = "design-mix-16";
 
 const nav = [
   ["Startseite", "/"],
@@ -503,9 +503,8 @@ function homeSeoIntroHtml() {
 
 function servicesGridHtml() {
   return `<section id="leistungen" class="section-soft"><div class="container">
-    <div class="section-intro"><h2>Was soll in Berlin geräumt werden?</h2><p>Nach dem Muster guter Entrümpelungsseiten führen die Kacheln direkt zur passenden Situation: Wohnung, Keller, Dachboden, Garage, Sperrmüll, Nachlass oder Gewerbe.</p></div>
+    <div class="section-intro"><h2>Was soll in Berlin geräumt werden?</h2><p>Wählen Sie die passende Leistung für Wohnung, Keller, Dachboden, Garage, Sperrmüll, Nachlass oder Gewerbe.</p></div>
     <div class="grid-3">${services.map((service) => `<article class="card">
-      <span class="card-kicker">Berlin Service</span>
       <h3>${esc(service.short)}</h3>
       <p>${esc(service.intro)}</p>
       <ul class="mini-list"><li>Festpreis nach Einschätzung</li><li>Transport und Entsorgung</li><li>Besenreine Übergabe möglich</li></ul>
