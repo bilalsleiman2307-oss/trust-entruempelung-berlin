@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "[E-Mail-Adresse einsetzen]";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-11";
+const assetVersion = "design-mix-12";
 
 const nav = [
   ["Startseite", "/"],
@@ -458,7 +458,6 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
     <div class="hero-shell">
       <div class="container-wide hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Berliner Entrümpelungsfirma</span>
           <h1><span>${esc(heroTitle)}</span></h1>
           <p class="lead">${esc(text)}</p>
           <div class="hero-actions">

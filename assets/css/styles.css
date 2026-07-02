@@ -432,7 +432,8 @@ h1 {
 .hero-shell h1 span {
   display: inline;
   padding: 3px 12px 7px;
-  background: rgba(11, 31, 58, .96);
+  background: rgba(255, 255, 255, .90);
+  color: var(--trust-navy);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -1177,6 +1178,28 @@ textarea {
   .cost-grid,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .hero-points li {
+    min-height: 58px;
+    padding: 9px 8px 9px 34px;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .hero-points li::before {
+    left: 10px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-points li::after {
+    left: 15px;
   }
 
   .span-2 {
