@@ -453,18 +453,22 @@ function breadcrumbHtml(page) {
 
 function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenreiner Übergabe") {
   return `<section class="hero">
-    <div class="container-wide hero-shell">
-      <div class="hero-grid">
-        <div>
+    <div class="hero-shell">
+      <div class="container-wide hero-grid">
+        <div class="hero-copy">
           <span class="eyebrow">Berliner Entrümpelungsfirma</span>
-          <h1>${esc(page.h1)}</h1>
+          <h1><span>${esc(page.h1)}</span></h1>
+          <p class="hero-subline">schnell. sauber. transparent.</p>
           <p class="lead">${esc(text)}</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/kontakt/">Kostenlose Besichtigung anfragen</a>
+            <a class="button button-primary" href="/kontakt/">Jetzt anfragen</a>
             <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
-            <a class="button button-whatsapp" href="https://wa.me/${whatsapp}">Fotos per WhatsApp senden</a>
+            <a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp-Kontakt</a>
           </div>
           <ul class="hero-points">
+            <li>Termine nach Absprache</li>
+            <li>Kostenlose Ersteinschätzung</li>
+            <li>Keine versteckten Kosten</li>
             <li>Festpreis nach Einschätzung</li>
             <li>Räumung, Transport, Entsorgung</li>
             <li>Besenreine Übergabe möglich</li>
@@ -648,7 +652,7 @@ function headHtml(page) {
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-6">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-7">
   ${schema(page)}`;
 }
 
@@ -739,7 +743,7 @@ function render(page) {
     ${bodyContent(page)}
   </main>
   ${footerHtml()}
-  <script src="/assets/js/main.js?v=design-mix-6" defer></script>
+  <script src="/assets/js/main.js?v=design-mix-7" defer></script>
 </body>
 </html>
 `;
