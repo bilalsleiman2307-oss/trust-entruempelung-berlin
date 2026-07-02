@@ -652,7 +652,7 @@ function headHtml(page) {
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-8">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-9">
   ${schema(page)}`;
 }
 
@@ -743,7 +743,7 @@ function render(page) {
     ${bodyContent(page)}
   </main>
   ${footerHtml()}
-  <script src="/assets/js/main.js?v=design-mix-8" defer></script>
+  <script src="/assets/js/main.js?v=design-mix-9" defer></script>
 </body>
 </html>
 `;
