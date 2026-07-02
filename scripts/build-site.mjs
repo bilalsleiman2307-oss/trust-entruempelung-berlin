@@ -452,13 +452,13 @@ function breadcrumbHtml(page) {
 }
 
 function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenreiner Übergabe") {
+  const heroTitle = page.slug ? page.keyword : "Entrümpelung Berlin";
   return `<section class="hero">
     <div class="hero-shell">
       <div class="container-wide hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Berliner Entrümpelungsfirma</span>
-          <h1><span>${esc(page.h1)}</span></h1>
-          <p class="hero-subline">schnell. sauber. transparent.</p>
+          <h1><span>${esc(heroTitle)}</span></h1>
           <p class="lead">${esc(text)}</p>
           <div class="hero-actions">
             <a class="button button-primary" href="/kontakt/">Jetzt anfragen</a>
@@ -652,7 +652,7 @@ function headHtml(page) {
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-7">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-8">
   ${schema(page)}`;
 }
 
@@ -743,7 +743,7 @@ function render(page) {
     ${bodyContent(page)}
   </main>
   ${footerHtml()}
-  <script src="/assets/js/main.js?v=design-mix-7" defer></script>
+  <script src="/assets/js/main.js?v=design-mix-8" defer></script>
 </body>
 </html>
 `;
