@@ -114,10 +114,10 @@ img, svg {
 }
 
 .header-inner {
-  min-height: 86px;
+  min-height: 82px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   justify-content: space-between;
 }
 
@@ -128,15 +128,15 @@ img, svg {
   font-weight: 800;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--trust-navy);
-  min-width: 280px;
-  flex: 0 0 280px;
+  min-width: 238px;
+  flex: 0 0 238px;
   overflow: visible;
 }
 
 .brand-logo {
   display: block;
-  width: 280px;
-  height: 72px;
+  width: 238px;
+  height: 62px;
   object-fit: contain;
   object-position: left center;
   background: transparent;
@@ -165,7 +165,7 @@ img, svg {
 
 .footer-logo {
   display: block;
-  width: 250px;
+  width: 238px;
   max-width: 100%;
   height: auto;
   margin-bottom: 18px;
@@ -174,7 +174,7 @@ img, svg {
 
 .desktop-nav {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: center;
@@ -271,6 +271,11 @@ img, svg {
   gap: 10px;
   flex: 0 0 auto;
   white-space: nowrap;
+}
+
+.header-actions .button {
+  min-height: 46px;
+  padding: 12px 18px;
 }
 
 .menu-toggle {

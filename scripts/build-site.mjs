@@ -7,6 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "[E-Mail-Adresse einsetzen]";
 const formEmail = "entruempelung@trust-bm-service.de";
+const assetVersion = "design-mix-10";
 
 const nav = [
   ["Startseite", "/"],
@@ -424,7 +425,7 @@ function headerHtml() {
     </div>
     <div class="container-wide header-inner">
       <a class="brand" href="/" aria-label="Trust Entrümpelung Berlin Startseite">
-        <img class="brand-logo" src="/assets/logo.svg" alt="Trust Entrümpelung Berlin">
+        <img class="brand-logo" src="/assets/logo.svg?v=${assetVersion}" alt="Trust Entrümpelung Berlin">
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">${desktopNavHtml()}</nav>
       <div class="header-actions">
@@ -607,7 +608,7 @@ function internalLinksHtml(page) {
 function footerHtml() {
   return `<footer class="site-footer"><div class="container-wide">
     <div class="footer-grid">
-      <div><img class="footer-logo" src="/assets/logo.svg" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: ${phone}<br>WhatsApp: ${whatsapp}<br>E-Mail: ${email}</p></div>
+      <div><img class="footer-logo" src="/assets/logo.svg?v=${assetVersion}" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: ${phone}<br>WhatsApp: ${whatsapp}<br>E-Mail: ${email}</p></div>
       <div><div class="footer-title">Leistungen</div><a href="/entruempelung-berlin/">Entrümpelung Berlin</a><a href="/wohnungsaufloesung-berlin/">Wohnungsauflösung Berlin</a><a href="/haushaltsaufloesung-berlin/">Haushaltsauflösung Berlin</a><a href="/nachlassaufloesung-berlin/">Nachlassauflösung Berlin</a><a href="/firmenaufloesung-berlin/">Firmenauflösung Berlin</a><a href="/sperrmuellabholung-berlin/">Sperrmüllabholung Berlin</a></div>
       <div><div class="footer-title">Räume & Spezialfälle</div><a href="/kellerentruempelung-berlin/">Kellerentrümpelung Berlin</a><a href="/dachbodenentruempelung-berlin/">Dachbodenentrümpelung Berlin</a><a href="/garagenentruempelung-berlin/">Garagenentrümpelung Berlin</a><a href="/moebeltransport-berlin/">Möbeltransport Berlin</a><a href="/kleine-umzuege-berlin/">Kleine Umzüge Berlin</a><a href="/entruempelung-berlin/">Messie-Wohnung entrümpeln</a></div>
       <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Gesundbrunnen</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Prenzlauer Berg</a><a href="/#einsatzgebiete">Reinickendorf</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/#einsatzgebiete">Brandenburg / Berliner Umland</a></div>
@@ -652,7 +653,7 @@ function headHtml(page) {
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=design-mix-9">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=${assetVersion}">
   ${schema(page)}`;
 }
 
@@ -743,7 +744,7 @@ function render(page) {
     ${bodyContent(page)}
   </main>
   ${footerHtml()}
-  <script src="/assets/js/main.js?v=design-mix-9" defer></script>
+  <script src="/assets/js/main.js?v=${assetVersion}" defer></script>
 </body>
 </html>
 `;

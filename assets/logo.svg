@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="170" viewBox="0 0 760 170" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="150" viewBox="0 0 680 150" role="img" aria-labelledby="title desc">
   <title id="title">Trust Entrümpelung Berlin</title>
-  <desc id="desc">Transparentes Firmenlogo mit Transporter und Haus für Trust Entrümpelung Berlin</desc>
-  <g transform="translate(18 34)">
-    <path d="M12 52 H118 L138 76 H166 V108 H12 Z" fill="#0b1f3a"/>
-    <path d="M26 30 H104 V52 H26 Z" fill="#0b1f3a"/>
-    <path d="M112 58 H135 L151 76 H112 Z" fill="#ffffff" opacity=".92"/>
-    <path d="M34 58 L66 34 L98 58" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
-    <path d="M44 58 V88 H88 V58" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
-    <circle cx="44" cy="110" r="15" fill="#ffffff"/>
-    <circle cx="44" cy="110" r="7" fill="#0b1f3a"/>
-    <circle cx="132" cy="110" r="15" fill="#ffffff"/>
-    <circle cx="132" cy="110" r="7" fill="#0b1f3a"/>
+  <desc id="desc">Transparentes Logo mit Transporter und Haus auf der Ladefläche</desc>
+  <g transform="translate(14 22)">
+    <path d="M8 70 H122 L145 92 H176 V116 H8 Z" fill="#0b1f3a"/>
+    <path d="M118 74 H143 L158 92 H118 Z" fill="#ffffff"/>
+    <path d="M32 70 V46 H92 V70" fill="#ffffff"/>
+    <path d="M24 48 L62 20 L100 48" fill="none" stroke="#0b1f3a" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M38 50 L62 32 L86 50" fill="none" stroke="#0b1f3a" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+    <circle cx="46" cy="118" r="14" fill="#ffffff"/>
+    <circle cx="46" cy="118" r="6" fill="#0b1f3a"/>
+    <circle cx="138" cy="118" r="14" fill="#ffffff"/>
+    <circle cx="138" cy="118" r="6" fill="#0b1f3a"/>
   </g>
-  <g transform="translate(210 42)">
-    <text x="0" y="43" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="900" letter-spacing="1.1" fill="#0b1f3a">TRUST</text>
-    <rect x="0" y="58" width="440" height="4" fill="#0b1f3a"/>
-    <text x="0" y="98" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="850" letter-spacing=".2" fill="#171a1f">ENTRÜMPELUNG BERLIN</text>
+  <g transform="translate(220 42)">
+    <text x="0" y="42" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="900" letter-spacing="1" fill="#0b1f3a">TRUST</text>
+    <rect x="0" y="56" width="398" height="4" fill="#0b1f3a"/>
+    <text x="0" y="96" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="850" letter-spacing=".15" fill="#171a1f">ENTRÜMPELUNG BERLIN</text>
   </g>
 </svg>
