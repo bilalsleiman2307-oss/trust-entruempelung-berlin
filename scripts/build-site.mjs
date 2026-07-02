@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-14";
+const assetVersion = "design-mix-15";
 
 const nav = [
   ["Startseite", "/"],
@@ -22,7 +22,7 @@ const services = [
     keyword: "Entrümpelung Berlin",
     short: "Entrümpelung Berlin",
     title: "Entrümpelung Berlin | Wohnung, Keller & Hausrat räumen lassen",
-    description: "Entrümpelung Berlin vom professionellen Entrümpelungsdienst: Wohnung, Keller, Dachboden, Garage und Hausrat räumen lassen. Kostenlose Ersteinschätzung, Festpreis nach Besichtigung und besenreine Übergabe.",
+    description: "Entrümpelung Berlin vom professionellen Entrümpelungsdienst: Wohnung, Keller, Dachboden, Garage und Hausrat räumen lassen. Kostenlose Besichtigung, Festpreis nach Einschätzung und besenreine Übergabe.",
     h1: "Entrümpelung Berlin - Wohnung, Keller & Hausrat professionell räumen lassen",
     image: "Heller Berliner Altbauflur nach besenreiner Übergabe",
     intro: "Unsere Entrümpelung Berlin richtet sich an Privatkunden, Angehörige, Eigentümer, Hausverwaltungen und Firmen. Wir prüfen Umfang, Etage, Zugang, Parkmöglichkeit, Demontageaufwand und gewünschtes Übergabedatum, bevor ein Festpreis genannt wird.",
@@ -47,7 +47,7 @@ const services = [
     keyword: "Wohnungsauflösung Berlin",
     short: "Wohnungsauflösung Berlin",
     title: "Wohnungsauflösung Berlin | Wohnung besenrein räumen lassen",
-    description: "Wohnungsauflösung Berlin mit Trust: Wohnung leer räumen, Möbel und Hausrat entsorgen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Ersteinschätzung und Festpreis nach Besichtigung.",
+    description: "Wohnungsauflösung Berlin mit Trust: Wohnung leer räumen, Möbel und Hausrat entsorgen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Besichtigung und Festpreis nach Einschätzung.",
     h1: "Wohnungsauflösung Berlin - Wohnung leer räumen und besenrein übergeben",
     image: "Besenreine Wohnung mit Licht durch Fenster",
     intro: "Eine Wohnungsauflösung Berlin braucht klare Planung, besonders wenn Übergabetermin, Vermieter, Angehörige oder Hausverwaltung beteiligt sind. Trust räumt Möbel, Hausrat, Sperrmüll und Nebenräume und bereitet die Wohnung auf Wunsch besenrein für die Übergabe vor.",
@@ -70,7 +70,7 @@ const services = [
     keyword: "Haushaltsauflösung Berlin",
     short: "Haushaltsauflösung Berlin",
     title: "Haushaltsauflösung Berlin | Hausrat räumen & entsorgen lassen",
-    description: "Haushaltsauflösung Berlin mit Trust: Hausrat, Möbel, Sperrmüll und Gegenstände räumen, sortieren und fachgerecht entsorgen lassen. Kostenlose Einschätzung und Festpreis nach Besichtigung.",
+    description: "Haushaltsauflösung Berlin mit Trust: Hausrat, Möbel, Sperrmüll und Gegenstände räumen, sortieren und fachgerecht entsorgen lassen. Kostenlose Besichtigung und Festpreis nach Einschätzung.",
     h1: "Haushaltsauflösung Berlin - Hausrat räumen, sortieren und entsorgen lassen",
     image: "Geordnete Kartons und Schutzmaterial vor einer Haushaltsauflösung",
     intro: "Bei einer Haushaltsauflösung Berlin geht es um mehr als Tragen. Ein kompletter Hausstand wird sortiert, verwertbare Gegenstände werden geprüft, Sperrmüll und Hausrat werden fachgerecht entsorgt und Räume werden für Übergabe, Verkauf oder Sanierung vorbereitet.",
@@ -92,7 +92,7 @@ const services = [
     keyword: "Nachlassauflösung Berlin",
     short: "Nachlassauflösung Berlin",
     title: "Nachlassauflösung Berlin | Diskret Wohnung & Hausrat räumen",
-    description: "Nachlassauflösung Berlin mit Trust: Wohnung, Möbel und Hausrat nach Todesfall diskret räumen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Einschätzung.",
+    description: "Nachlassauflösung Berlin mit Trust: Wohnung, Möbel und Hausrat nach Todesfall diskret räumen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Besichtigung und Einschätzung.",
     h1: "Nachlassauflösung Berlin - diskret räumen, sortieren und übergeben",
     image: "Schlüsselübergabe an Wohnungstür, Hände ohne erkennbare Gesichter",
     intro: "Eine Nachlassauflösung Berlin verlangt Ruhe, klare Absprachen und Diskretion. Wir stimmen Schlüsselübergabe, persönliche Unterlagen, Wertgegenstände, Rückfragen und Übergabe so ab, dass Angehörige nicht dauerhaft vor Ort sein müssen.",
@@ -114,7 +114,7 @@ const services = [
     keyword: "Firmenauflösung Berlin",
     short: "Firmenauflösung Berlin",
     title: "Firmenauflösung Berlin | Büro, Lager & Gewerbe räumen",
-    description: "Firmenauflösung Berlin mit Trust: Büro, Praxis, Lager und Gewerbeflächen räumen, Möbel demontieren, entsorgen und termingerecht übergeben. Kostenlose Einschätzung.",
+    description: "Firmenauflösung Berlin mit Trust: Büro, Praxis, Lager und Gewerbeflächen räumen, Möbel demontieren, entsorgen und termingerecht übergeben. Kostenlose Besichtigung und Einschätzung.",
     h1: "Firmenauflösung Berlin - Büro, Lager und Gewerbeflächen räumen lassen",
     image: "Bürofläche nach Firmenauflösung",
     intro: "Eine Firmenauflösung Berlin braucht belastbare Zeitfenster, klare Zuständigkeiten und saubere Übergaben. Trust räumt Büros, Praxen, Lager und Gewerbeflächen mit Blick auf Zugang, Datenschutz, Demontage und Entsorgung.",
@@ -136,7 +136,7 @@ const services = [
     keyword: "Kellerentrümpelung Berlin",
     short: "Kellerentrümpelung Berlin",
     title: "Kellerentrümpelung Berlin | Keller räumen & entsorgen lassen",
-    description: "Kellerentrümpelung Berlin mit Trust: Kellerraum, Verschlag, Möbel, Kartons und Sperrmüll räumen lassen. Kostenlose Einschätzung und Festpreis nach Besichtigung.",
+    description: "Kellerentrümpelung Berlin mit Trust: Kellerraum, Verschlag, Möbel, Kartons und Sperrmüll räumen lassen. Kostenlose Besichtigung und Festpreis nach Einschätzung.",
     h1: "Kellerentrümpelung Berlin - Keller räumen und entsorgen lassen",
     image: "Leerer Kellerraum nach Räumung",
     intro: "Eine Kellerentrümpelung Berlin ist oft enger, staubiger und komplizierter als gedacht. Wir prüfen Zugang, Tragewege, Licht, Etage, Parkmöglichkeit und Entsorgungsart, bevor wir den Keller räumen.",
@@ -158,7 +158,7 @@ const services = [
     keyword: "Dachbodenentrümpelung Berlin",
     short: "Dachbodenentrümpelung Berlin",
     title: "Dachbodenentrümpelung Berlin | Dachboden räumen lassen",
-    description: "Dachbodenentrümpelung Berlin mit Trust: Dachboden räumen, alte Möbel, Kartons, Sperrmüll und Hausrat entsorgen lassen. Kostenlose Einschätzung und Festpreis nach Besichtigung.",
+    description: "Dachbodenentrümpelung Berlin mit Trust: Dachboden räumen, alte Möbel, Kartons, Sperrmüll und Hausrat entsorgen lassen. Kostenlose Besichtigung und Festpreis nach Einschätzung.",
     h1: "Dachbodenentrümpelung Berlin - Dachboden räumen und entsorgen lassen",
     image: "Mitarbeiter tragen Kartons aus einem Berliner Dachboden, Gesichter nicht erkennbar",
     intro: "Eine Dachbodenentrümpelung Berlin verlangt besondere Aufmerksamkeit für Tragewege, Treppenhaus, Staub, alte Möbel und die Entsorgung. Wir planen Zugang und Umfang vorab, damit der Dachboden geordnet geräumt wird.",
@@ -180,7 +180,7 @@ const services = [
     keyword: "Garagenentrümpelung Berlin",
     short: "Garagenentrümpelung Berlin",
     title: "Garagenentrümpelung Berlin | Garage räumen & entsorgen lassen",
-    description: "Garagenentrümpelung Berlin mit Trust: Garage leer räumen, Sperrmüll, alte Möbel, Kartons und Gegenstände entsorgen lassen. Kostenlose Einschätzung und Festpreis nach Besichtigung.",
+    description: "Garagenentrümpelung Berlin mit Trust: Garage leer räumen, Sperrmüll, alte Möbel, Kartons und Gegenstände entsorgen lassen. Kostenlose Besichtigung und Festpreis nach Einschätzung.",
     h1: "Garagenentrümpelung Berlin - Garage räumen und Gegenstände entsorgen lassen",
     image: "Aufgeräumte Garage nach Räumung",
     intro: "Bei einer Garagenentrümpelung Berlin geht es oft um Sperrmüll, alte Möbel, Kartons, Werkzeuge und Gegenstände, die jahrelang liegen geblieben sind. Wir klären vorab, was entsorgt werden darf und welche Stoffe gesondert behandelt werden müssen.",
@@ -202,7 +202,7 @@ const services = [
     keyword: "Sperrmüllabholung Berlin",
     short: "Sperrmüllabholung Berlin",
     title: "Sperrmüllabholung Berlin | Möbel & Sperrmüll abholen lassen",
-    description: "Sperrmüllabholung Berlin mit Trust: Möbel, Matratzen, Schränke und Sperrmüll abholen, tragen und fachgerecht entsorgen lassen. Kostenlose Einschätzung und kurzfristige Termine möglich.",
+    description: "Sperrmüllabholung Berlin mit Trust: Möbel, Matratzen, Schränke und Sperrmüll abholen, tragen und fachgerecht entsorgen lassen. Kostenlose Besichtigung und kurzfristige Termine möglich.",
     h1: "Sperrmüllabholung Berlin - Möbel und Sperrmüll abholen lassen",
     image: "Möbel werden diskret aus einem Treppenhaus getragen, Gesichter nicht erkennbar",
     intro: "Die Sperrmüllabholung Berlin ist sinnvoll, wenn Möbel, Matratzen, Schränke oder einzelne sperrige Gegenstände aus Wohnung, Keller, Dachboden oder Garage getragen und entsorgt werden sollen.",
@@ -246,7 +246,7 @@ const services = [
     keyword: "Kleine Umzüge Berlin",
     short: "Kleine Umzüge Berlin",
     title: "Kleine Umzüge Berlin | Kleinumzug & Möbeltransport",
-    description: "Kleine Umzüge Berlin mit Trust: Kleinumzug, Möbeltransport und einzelne Transporte für Wohnungen, Studenten, Senioren und kleine Haushalte. Kostenlose Einschätzung anfragen.",
+    description: "Kleine Umzüge Berlin mit Trust: Kleinumzug, Möbeltransport und einzelne Transporte für Wohnungen, Studenten, Senioren und kleine Haushalte. Kostenlose Besichtigung anfragen.",
     h1: "Kleine Umzüge Berlin - Kleinumzug und Möbeltransport aus einer Hand",
     image: "Wenige geordnete Umzugskartons in Berliner Wohnung",
     intro: "Kleine Umzüge Berlin sind ideal für 1-Zimmer-Wohnungen, WG-Zimmer, Seniorenumzüge oder wenige Möbelstücke. Trust plant Tragen, Transport, mögliche Demontage und auf Wunsch eine kleine Entrümpelung mit.",
@@ -272,7 +272,7 @@ const pages = [
     slug: "",
     keyword: "Entrümpelung Berlin",
     title: "Entrümpelung Berlin | Wohnungsauflösung & Haushaltsauflösung",
-    description: "Trust Entrümpelung Berlin übernimmt Entrümpelung, Wohnungsauflösung, Haushaltsauflösung, Sperrmüllabholung und Nachlassauflösung in Berlin. Kostenlose Ersteinschätzung, Festpreis nach Besichtigung und besenreine Übergabe.",
+    description: "Trust Entrümpelung Berlin übernimmt Entrümpelung, Wohnungsauflösung, Haushaltsauflösung, Sperrmüllabholung und Nachlassauflösung in Berlin. Kostenlose Besichtigung, Festpreis nach Einschätzung und besenreine Übergabe.",
     h1: "Entrümpelung Berlin - Wohnungsauflösung, Haushaltsauflösung & besenreine Übergabe",
     type: "home",
     faq: [
@@ -284,7 +284,7 @@ const pages = [
       ["Übernehmen Sie auch Keller, Dachboden und Garage?", "Ja, Kellerentrümpelung, Dachbodenentrümpelung und Garagenentrümpelung gehören zu den Leistungen in Berlin."],
       ["Machen Sie auch Wohnungsauflösungen nach Todesfall?", "Ja, Nachlassauflösungen und Wohnungsauflösungen nach Todesfall werden diskret und mit klaren Absprachen durchgeführt."],
       ["Arbeiten Sie auch für Hausverwaltungen und Firmen?", "Ja, Trust übernimmt Entrümpelung Berlin auch für Hausverwaltungen, Eigentümer, Büros, Praxen und Gewerbeflächen."],
-      ["Kann ich Fotos per WhatsApp schicken?", "Ja, Fotos von Räumen, Etage, Zugang und Gegenständen helfen bei der kostenlosen Ersteinschätzung."],
+      ["Kann ich Fotos per WhatsApp schicken?", "Ja, Fotos von Räumen, Etage, Zugang und Gegenständen helfen bei der kostenlosen Einschätzung. Eine kostenlose Besichtigung ist nach Absprache möglich."],
       ["Sind Sie auch in Brandenburg im Einsatz?", "Berlin ist der Schwerpunkt. Angrenzendes Brandenburg ist nach Absprache möglich."],
     ],
   },
@@ -293,13 +293,13 @@ const pages = [
     slug: "preise",
     keyword: "Entrümpelung Kosten Berlin",
     title: "Entrümpelung Kosten Berlin | Preise & Festpreis-Erklärung",
-    description: "Was kostet eine Entrümpelung in Berlin? Trust erklärt Preisfaktoren wie Menge, Etage, Zugang, Demontage, Entsorgung und Wertanrechnung. Kostenlose Ersteinschätzung anfragen.",
+    description: "Was kostet eine Entrümpelung in Berlin? Trust erklärt Preisfaktoren wie Menge, Etage, Zugang, Demontage, Entsorgung und Wertanrechnung. Kostenlose Besichtigung anfragen.",
     h1: "Entrümpelung Kosten Berlin - Preise verstehen und Festpreis anfragen",
     type: "prices",
     faq: [
       ["Warum gibt es keinen seriösen Festpreis ohne Umfang?", "Entrümpelung Kosten Berlin lassen sich erst belastbar einschätzen, wenn Menge, Etage, Zugang, Parkmöglichkeit, Demontage und Entsorgung bekannt sind."],
       ["Welche Faktoren beeinflussen den Preis?", "Wohnungsgröße, Menge, Etage, Fahrstuhl, Parkmöglichkeit, Tragewege, Sonderstoffe, Demontage und Terminwunsch beeinflussen den Preis."],
-      ["Ist eine kostenlose Ersteinschätzung möglich?", "Ja, Fotos und kurze Angaben reichen oft für eine erste Einschätzung. Bei größeren Aufträgen ist eine Besichtigung sinnvoll."],
+      ["Ist eine kostenlose Besichtigung möglich?", "Ja, Fotos und kurze Angaben reichen oft für eine erste Einschätzung. Bei größeren Aufträgen ist eine kostenlose Besichtigung nach Absprache möglich."],
       ["Was bedeutet Wertanrechnung?", "Verwertbare Gegenstände können geprüft und realistisch im Angebot berücksichtigt werden."],
       ["Ist selbst entsorgen günstiger?", "Manchmal ja. Wenn Tragen, Transport, Zeit, Fahrzeug, Entsorgung und Übergabetermin zusammenkommen, lohnt sich häufig eine Firma."],
     ],
@@ -308,12 +308,12 @@ const pages = [
     slug: "kontakt",
     keyword: "Entrümpelung Berlin Kontakt",
     title: "Kontakt | Trust Entrümpelung Berlin",
-    description: "Kontakt zu Trust Entrümpelung Berlin: Kostenlose Ersteinschätzung für Entrümpelung, Wohnungsauflösung, Sperrmüllabholung und Haushaltsauflösung in Berlin anfragen.",
+    description: "Kontakt zu Trust Entrümpelung Berlin: Kostenlose Besichtigung für Entrümpelung, Wohnungsauflösung, Sperrmüllabholung und Haushaltsauflösung in Berlin anfragen.",
     h1: "Kontakt zu Trust Entrümpelung Berlin",
     type: "contact",
     faq: [
       ["Welche Angaben helfen bei der Anfrage?", "Für den Entrümpelung Berlin Kontakt helfen Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit, Umfang und gewünschter Zeitraum."],
-      ["Kann ich Fotos per WhatsApp senden?", "Ja, Fotos sind für eine schnelle Ersteinschätzung sehr hilfreich."],
+      ["Kann ich Fotos per WhatsApp senden?", "Ja, Fotos sind für eine schnelle Einschätzung sehr hilfreich. Eine kostenlose Besichtigung ist nach Absprache möglich."],
       ["Wie schnell bekomme ich eine Rückmeldung?", "Die Antwortzeit hängt vom Tagesgeschäft ab. Vollständige Angaben beschleunigen die Einschätzung."],
       ["Gibt es ein Formular?", "Ja, das Formular auf dieser Seite ist als Anfrageplatzhalter vorbereitet und kann mit echter Technik verbunden werden."],
     ],
@@ -347,7 +347,7 @@ const pages = [
 ];
 
 const trustItems = [
-  ["Kostenlose Ersteinschätzung", "Fotos oder kurze Beschreibung reichen oft für den Start."],
+  ["Kostenlose Besichtigung", "Fotos oder kurze Beschreibung reichen oft für den Start. Eine Besichtigung ist nach Absprache kostenlos möglich."],
   ["Festpreis nach Besichtigung", "Umfang, Etage und Zugang werden vorher geprüft."],
   ["Besenreine Übergabe", "Auf Wunsch vorbereitet für Vermieter oder Verwaltung."],
   ["WhatsApp mit Fotos möglich", "Schnelle Orientierung ohne lange Vortermine."],
@@ -430,7 +430,7 @@ function headerHtml() {
       <nav class="desktop-nav" aria-label="Hauptnavigation">${desktopNavHtml()}</nav>
       <div class="header-actions">
         <a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a>
-        <a class="button button-primary" href="/kontakt/">Kostenlose Ersteinschätzung</a>
+        <a class="button button-primary" href="/kontakt/">Kostenlose Besichtigung</a>
       </div>
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-menu-button><span></span><span></span></button>
     </div>
@@ -464,14 +464,14 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
           </div>
           <ul class="hero-points">
             <li>Termine nach Absprache</li>
-            <li>Kostenlose Ersteinschätzung</li>
+            <li>Kostenlose Besichtigung möglich</li>
             <li>Keine versteckten Kosten</li>
             <li>Festpreis nach Einschätzung</li>
             <li>Räumung, Transport, Entsorgung</li>
             <li>Besenreine Übergabe möglich</li>
           </ul>
         </div>
-        <aside class="quote-panel" aria-label="Kostenlose Ersteinschätzung">
+        <aside class="quote-panel" aria-label="Kostenlose Besichtigung und Einschätzung">
           <h2>Festpreis vorbereiten</h2>
           <p>Wie bei einer kurzen Online-Besichtigung: Fotos und Eckdaten reichen oft für die erste Einschätzung.</p>
           <ol class="quote-steps">
@@ -554,14 +554,14 @@ function areasHtml() {
 
 function faqHtml(page) {
   return `<section class="section-soft"><div class="container">
-    <div class="section-intro"><h2>Häufige Fragen zur ${esc(page.keyword)}</h2><p>Die Antworten sind sichtbar im HTML und passend als FAQPage Schema im Kopf der Seite hinterlegt.</p></div>
-    <div class="faq-list">${page.faq.map(([q, a]) => `<article class="faq-item"><h3>${esc(q)}</h3><p>${esc(a)}</p></article>`).join("")}</div>
+    <div class="section-intro"><h2>Häufige Fragen zur ${esc(page.keyword)}</h2><p>Klicken Sie auf eine Frage, um die Antwort zu öffnen.</p></div>
+    <div class="faq-list">${page.faq.map(([q, a]) => `<details class="faq-item"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
   </div></section>`;
 }
 
 function ctaHtml(page) {
   return `<section><div class="container"><div class="cta-panel">
-    <div><h2>Kostenlose Ersteinschätzung für Ihre ${esc(page.keyword)}</h2><p>Senden Sie Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit und gewünschten Zeitraum. Wir prüfen den Umfang und melden uns mit einer klaren Einschätzung zurück.</p></div>
+    <div><h2>Kostenlose Besichtigung und Einschätzung für Ihre ${esc(page.keyword)}</h2><p>Senden Sie Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit und gewünschten Zeitraum. Wir prüfen den Umfang und melden uns mit einer klaren Einschätzung zurück. Eine kostenlose Besichtigung ist nach Absprache möglich.</p></div>
     <div class="cta-actions"><a class="button button-secondary" href="tel:${phone}">Direkt anrufen</a><a class="button button-whatsapp" href="https://wa.me/${whatsapp}">WhatsApp senden</a><a class="button button-secondary" href="#anfrageformular">Formular nutzen</a></div>
   </div></div></section>`;
 }

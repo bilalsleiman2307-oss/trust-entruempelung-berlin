@@ -816,6 +816,9 @@ section {
 .section-intro {
   max-width: var(--content-narrow);
   margin-bottom: 34px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .section-intro p {
@@ -950,21 +953,57 @@ section {
 
 .faq-list {
   max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
   border-top: 1px solid var(--trust-line);
 }
 
 .faq-item {
   border-bottom: 1px solid var(--trust-line);
-  padding: 22px 0;
+  padding: 0;
 }
 
-.faq-item h3 {
+.faq-item summary {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding: 22px 52px 22px 0;
   font-size: 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  color: var(--trust-navy);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  background: var(--trust-navy);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
 }
 
 .faq-item p {
   color: var(--text-muted);
-  margin: 10px 0 0;
+  margin: 0;
+  padding: 0 52px 22px 0;
 }
 
 .cta-panel {
