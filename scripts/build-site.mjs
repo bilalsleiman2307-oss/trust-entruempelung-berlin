@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "[E-Mail-Adresse einsetzen]";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-12";
+const assetVersion = "design-mix-13";
 
 const nav = [
   ["Startseite", "/"],
@@ -491,7 +491,17 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
 }
 
 function trustBarHtml() {
-  return `<div class="trust-bar"><div class="container trust-bar-grid">${trustItems.map(([title, text]) => `<div class="trust-item"><b>${esc(title)}</b><span>${esc(text)}</span></div>`).join("")}</div></div>`;
+  return "";
+}
+
+function homeSeoIntroHtml() {
+  return `<section class="seo-intro"><div class="container seo-intro-box">
+    <h2>Entrümpelung Berlin - Wohnungsauflösung, Haushaltsauflösung & Sperrmüllabholung</h2>
+    <p>Sie suchen eine zuverlässige Entrümpelungsfirma in Berlin, die Wohnungen, Keller, Dachböden, Garagen oder Gewerbeflächen sauber räumt? Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen und Sperrmüllabholungen in ganz Berlin - strukturiert, diskret und mit klarer Einschätzung vor Beginn der Arbeiten.</p>
+    <p>Ob einzelne Räume entrümpelt werden sollen, eine komplette Wohnung leer geräumt werden muss oder eine besenreine Übergabe nach Umzug, Todesfall oder Haushaltsauflösung ansteht: Wir prüfen den Umfang, klären Zugang, Etage, Parkmöglichkeit, Demontage und Entsorgung und erstellen auf Wunsch einen Festpreis nach Besichtigung. So wissen Sie vorher, was gemacht wird, welche Kosten entstehen und wann die Räume wieder frei übergeben werden können.</p>
+    <p>Unser Entrümpelungsdienst in Berlin unterstützt Privatkunden, Angehörige, Eigentümer, Vermieter, Hausverwaltungen und Unternehmen. Wir räumen Möbel, Hausrat, Sperrmüll, Elektrogeräte, Kartons und sonstige Gegenstände, trennen verwertbare Materialien und sorgen für eine fachgerechte Entsorgung. Wenn verwertbare Gegenstände vorhanden sind, kann eine Wertanrechnung geprüft werden.</p>
+    <p>Von der ersten Anfrage bis zur besenreinen Übergabe haben Sie einen klaren Ansprechpartner. Senden Sie uns Fotos per WhatsApp oder schildern Sie kurz den Fall - wir geben Ihnen eine erste Einschätzung und planen den nächsten Schritt.</p>
+  </div></section>`;
 }
 
 function servicesGridHtml() {
@@ -659,7 +669,7 @@ function headHtml(page) {
 function homeContent(page) {
   return [
     heroHtml(page, "Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen und Sperrmüllabholungen in ganz Berlin. Strukturiert geplant, transparent eingeschätzt und auf Wunsch besenrein übergeben."),
-    trustBarHtml(),
+    homeSeoIntroHtml(),
     `<section><div class="container"><div class="section-intro"><h2>Entrümpelung in Berlin mit Struktur, Festpreis und besenreiner Übergabe</h2><p>Nach drei Sekunden soll klar sein, was Trust macht: Räume frei machen, Hausrat sortieren, Möbel tragen, Sperrmüll entsorgen und Übergaben vorbereiten. Die Startseite gibt Orientierung, die Leistungsseiten erklären Details.</p></div><div class="grid-3"><div class="card"><h3>Wohnung leer räumen</h3><p>Für Auszug, Kündigung, Verkauf, Pflegeheim oder Nachlass mit abgestimmtem Übergabeziel.</p></div><div class="card"><h3>Keller, Dachboden und Garage</h3><p>Räume werden nicht nur leer, sondern nutzbar und auf Wunsch besenrein vorbereitet.</p></div><div class="card"><h3>Möbel und Sperrmüll</h3><p>Tragen, Transport und Entsorgung werden passend zum Umfang geplant.</p></div></div></div></section>`,
     servicesGridHtml(),
     processHtml("Entrümpelung Berlin"),
