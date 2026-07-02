@@ -128,15 +128,15 @@ img, svg {
   font-weight: 800;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--trust-navy);
-  min-width: 238px;
-  flex: 0 0 238px;
+  min-width: 260px;
+  flex: 0 0 260px;
   overflow: visible;
 }
 
 .brand-logo {
   display: block;
-  width: 238px;
-  height: 62px;
+  width: 260px;
+  height: 60px;
   object-fit: contain;
   object-position: left center;
   background: transparent;
@@ -165,7 +165,7 @@ img, svg {
 
 .footer-logo {
   display: block;
-  width: 238px;
+  width: 260px;
   max-width: 100%;
   height: auto;
   margin-bottom: 18px;
@@ -1139,8 +1139,8 @@ textarea {
   }
 
   .brand-logo {
-    width: 236px;
-    height: 58px;
+    width: 220px;
+    height: 52px;
   }
 
   .hero {
