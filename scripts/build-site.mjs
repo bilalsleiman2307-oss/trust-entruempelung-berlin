@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-17";
+const assetVersion = "design-mix-18";
 
 const nav = [
   ["Startseite", "/"],
@@ -377,6 +377,81 @@ function makeDistrictPage(area, serviceType) {
 const districtPages = districtAreas.flatMap((area) => districtServiceTypes.map((serviceType) => makeDistrictPage(area, serviceType)));
 const districtPageBySlug = Object.fromEntries(districtPages.map((page) => [page.slug, page]));
 
+const brandenburgPlaces = [
+  "Potsdam",
+  "Falkensee",
+  "Oranienburg",
+  "Bernau",
+  "Teltow",
+  "Kleinmachnow",
+  "Hennigsdorf",
+  "Königs Wusterhausen",
+  "Wildau",
+  "Ludwigsfelde",
+  "Werder",
+  "Nauen",
+  "Strausberg",
+  "Hoppegarten",
+  "Blankenfelde-Mahlow",
+];
+
+const brandenburgLead = "Potsdam, Falkensee, Oranienburg, Bernau, Teltow, Kleinmachnow, Hennigsdorf, Königs Wusterhausen, Wildau, Ludwigsfelde, Werder, Nauen, Strausberg, Hoppegarten und Blankenfelde-Mahlow";
+
+function serviceNameForArea(service, areaName) {
+  return service.short.replace(" Berlin", ` ${areaName}`);
+}
+
+function normalizeAreaText(text, areaName) {
+  return String(text)
+    .replaceAll(" Berlin", ` ${areaName}`)
+    .replaceAll(" in Berlin", ` in ${areaName}`)
+    .replaceAll("Berliner ", `${areaName}er `);
+}
+
+function makeBrandenburgPage(service) {
+  const keyword = serviceNameForArea(service, "Brandenburg");
+  return {
+    ...service,
+    slug: service.slug.replace("-berlin", "-brandenburg"),
+    keyword,
+    short: keyword,
+    title: `${keyword} | Trust Entrümpelung Berlin`,
+    description: `${keyword} nach Absprache: Räume, Wohnungen, Hausrat oder Sperrmüll im Berliner Umland räumen lassen. Einsatz u. a. in ${brandenburgPlaces.slice(0, 7).join(", ")}. Kostenlose Besichtigung möglich.`,
+    h1: `${keyword} - Einsatz im Berliner Umland nach Absprache`,
+    image: `${keyword} in Potsdam, Falkensee und weiteren Orten in Brandenburg`,
+    intro: `${keyword} ist nach Absprache im Berliner Umland möglich. Trust Entrümpelung Berlin plant Aufträge in Brandenburg sorgfältig, weil Entfernung, Parkmöglichkeit, Etage, Tragewege, Entsorgung und Zeitfenster zusammenpassen müssen. Typische Orte sind ${brandenburgLead}.`,
+    includes: service.includes.map((item) => normalizeAreaText(item, "Brandenburg")),
+    situations: [
+      `${keyword} in Potsdam, Falkensee oder Oranienburg`,
+      `Aufträge in Bernau, Teltow, Kleinmachnow oder Hennigsdorf nach Absprache`,
+      `Räumung, Transport, Entsorgung und Übergabe im Berliner Umland planen`,
+    ],
+    compareTitle: `${keyword}: Berlin-nah planen, Aufwand realistisch einschätzen`,
+    compareText: `Bei Einsätzen in Brandenburg prüfen wir zuerst Entfernung, Umfang, Zugang, Etage, Parkmöglichkeit und Entsorgungswege. So bleibt klar, ob ein Termin in Potsdam, Falkensee, Oranienburg, Bernau, Teltow, Königs Wusterhausen oder einem anderen Ort sinnvoll geplant werden kann.`,
+    faq: [
+      [`Bietet Trust ${keyword} an?`, `${keyword} ist nach Absprache möglich, vor allem im Berliner Umland. Dazu zählen unter anderem Potsdam, Falkensee, Oranienburg, Bernau, Teltow, Kleinmachnow, Hennigsdorf und Königs Wusterhausen.`],
+      ["Welche Orte in Brandenburg kommen infrage?", `Typische Einsatzorte sind ${brandenburgLead}. Weitere Orte prüfen wir nach Entfernung, Umfang und Termin.`],
+      [`Was kostet ${keyword}?`, "Die Kosten hängen von Entfernung, Menge, Etage, Zugang, Parkmöglichkeit, Demontage und Entsorgung ab. Nach Fotos oder kostenloser Besichtigung erhalten Sie eine klare Einschätzung."],
+      ["Ist eine kostenlose Besichtigung möglich?", "Ja, eine kostenlose Besichtigung ist nach Absprache möglich. Bei kleineren Aufträgen reichen oft Fotos und Eckdaten für die erste Einschätzung."],
+      ["Kann die Übergabe besenrein erfolgen?", "Ja, eine besenreine Übergabe kann vereinbart werden, wenn Räume, Wohnung oder Gewerbefläche entsprechend vorbereitet werden sollen."],
+    ],
+    links: [
+      service.slug,
+      "entruempelung-brandenburg",
+      "wohnungsaufloesung-brandenburg",
+      "nachlassaufloesung-brandenburg",
+      "preise",
+      "kontakt",
+    ].filter((value, index, list) => value !== service.slug.replace("-berlin", "-brandenburg") && list.indexOf(value) === index),
+    type: "brandenburg",
+    district: "Brandenburg",
+    baseServiceSlug: service.slug,
+  };
+}
+
+const brandenburgPages = services.map((service) => makeBrandenburgPage(service));
+const brandenburgPageBySlug = Object.fromEntries(brandenburgPages.map((page) => [page.slug, page]));
+
 const pages = [
   {
     slug: "",
@@ -400,6 +475,7 @@ const pages = [
   },
   ...services.map((service) => ({ ...service, type: "service" })),
   ...districtPages,
+  ...brandenburgPages,
   {
     slug: "preise",
     keyword: "Entrümpelung Kosten Berlin",
@@ -664,6 +740,15 @@ function areasHtml() {
         ${districtServiceTypes.map((serviceType) => `<a href="/${serviceType.slugPrefix}-${area.slug}/">${esc(serviceType.label)} ${esc(area.name)}</a>`).join("")}
       </div>
     </article>`).join("")}</div>
+    <div class="brandenburg-panel">
+      <div>
+        <h3>Brandenburg nach Absprache</h3>
+        <p>Auch im Berliner Umland prüfen wir passende Einsätze, zum Beispiel in ${esc(brandenburgLead)}.</p>
+      </div>
+      <div class="brandenburg-links">
+        ${brandenburgPages.map((page) => `<a href="/${page.slug}/">${esc(page.keyword)}</a>`).join("")}
+      </div>
+    </div>
   </div></section>`;
 }
 
@@ -721,8 +806,9 @@ function inquiryFormHtml(page) {
 
 function internalLinksHtml(page) {
   const linkSlugs = page.links || ["entruempelung-berlin", "wohnungsaufloesung-berlin", "haushaltsaufloesung-berlin", "preise", "kontakt"];
-  return `<section><div class="container"><div class="section-intro"><h2>Passende nächste Seiten</h2><p>Diese internen Links helfen bei der Einordnung und führen zu verwandten Leistungen in Berlin.</p></div><div class="grid-3">${linkSlugs.map((slug) => {
-    const target = serviceBySlug[slug] || districtPageBySlug[slug] || pages.find((item) => item.slug === slug);
+  const linkIntro = page.type === "brandenburg" ? "Diese Seiten helfen bei der Einordnung und führen zu passenden Leistungen für Berlin und das Berliner Umland." : "Diese Seiten helfen bei der Einordnung und führen zu verwandten Leistungen in Berlin.";
+  return `<section><div class="container"><div class="section-intro"><h2>Passende nächste Seiten</h2><p>${linkIntro}</p></div><div class="grid-3">${linkSlugs.map((slug) => {
+    const target = serviceBySlug[slug] || districtPageBySlug[slug] || brandenburgPageBySlug[slug] || pages.find((item) => item.slug === slug);
     return `<a class="card" href="/${slug}/"><span class="card-kicker">Passend dazu</span><h3>${esc(target?.keyword || slug)}</h3><p>Mehr zur passenden Leistung, Kostenlogik und Anfrage.</p></a>`;
   }).join("")}</div></div></section>`;
 }
@@ -733,7 +819,7 @@ function footerHtml() {
       <div><img class="footer-logo" src="/assets/logo-trust-transparent.png?v=${assetVersion}" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: ${phone}<br>WhatsApp: ${whatsapp}<br>E-Mail: ${email}</p></div>
       <div><div class="footer-title">Leistungen</div><a href="/entruempelung-berlin/">Entrümpelung Berlin</a><a href="/wohnungsaufloesung-berlin/">Wohnungsauflösung Berlin</a><a href="/haushaltsaufloesung-berlin/">Haushaltsauflösung Berlin</a><a href="/nachlassaufloesung-berlin/">Nachlassauflösung Berlin</a><a href="/firmenaufloesung-berlin/">Firmenauflösung Berlin</a><a href="/sperrmuellabholung-berlin/">Sperrmüllabholung Berlin</a></div>
       <div><div class="footer-title">Räume & Spezialfälle</div><a href="/kellerentruempelung-berlin/">Kellerentrümpelung Berlin</a><a href="/dachbodenentruempelung-berlin/">Dachbodenentrümpelung Berlin</a><a href="/garagenentruempelung-berlin/">Garagenentrümpelung Berlin</a><a href="/moebeltransport-berlin/">Möbeltransport Berlin</a><a href="/kleine-umzuege-berlin/">Kleine Umzüge Berlin</a><a href="/entruempelung-berlin/">Messie-Wohnung entrümpeln</a></div>
-      <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Gesundbrunnen</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Prenzlauer Berg</a><a href="/#einsatzgebiete">Reinickendorf</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/#einsatzgebiete">Brandenburg / Berliner Umland</a></div>
+      <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/entruempelung-brandenburg/">Entrümpelung Brandenburg</a><a href="/wohnungsaufloesung-brandenburg/">Wohnungsauflösung Brandenburg</a><a href="/nachlassaufloesung-brandenburg/">Nachlassauflösung Brandenburg</a></div>
       <div><div class="footer-title">Unternehmen</div><a href="/#leistungen">Über uns</a><a href="/#ablauf">Ablauf</a><a href="/preise/">Preise</a><a href="/kontakt/">Kontakt</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
     </div>
     <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Entrümpelung, Wohnungsauflösung und Sperrmüllabholung in Berlin.</span></div>
@@ -745,7 +831,7 @@ function schema(page) {
   const pageUrl = absoluteUrl(page.slug);
   const graph = [
     {"@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, logo: `${siteUrl}/assets/logo-trust-transparent.png`},
-    {"@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, areaServed: ["Berlin", "Potsdam", "Falkensee", "Bernau", "Teltow", "Oranienburg", "Hohen Neuendorf"], serviceType: services.map((item) => item.keyword)},
+    {"@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`, areaServed: ["Berlin", ...brandenburgPlaces], serviceType: [...services.map((item) => item.keyword), ...brandenburgPages.map((item) => item.keyword)]},
     {"@type": "WebPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: page.title, description: page.description},
     {"@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumb`, itemListElement: [
       {"@type": "ListItem", position: 1, name: "Startseite", item: `${siteUrl}/`},
@@ -758,7 +844,7 @@ function schema(page) {
     graph.push({"@type": "WebSite", "@id": `${siteUrl}/#website`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`});
   }
 
-  if (page.type === "service" || page.type === "district") {
+  if (page.type === "service" || page.type === "district" || page.type === "brandenburg") {
     graph.push({"@type": "Service", "@id": `${pageUrl}#service`, name: page.keyword, serviceType: page.keyword, provider: {"@id": `${siteUrl}/#localbusiness`}, areaServed: {"@type": page.district ? "AdministrativeArea" : "City", name: page.district || "Berlin"}, description: page.description});
   }
 
@@ -849,6 +935,7 @@ function bodyContent(page) {
   if (page.type === "home") return homeContent(page);
   if (page.type === "service") return serviceContent(page);
   if (page.type === "district") return serviceContent(page);
+  if (page.type === "brandenburg") return serviceContent(page);
   if (page.type === "prices") return pricesContent(page);
   if (page.type === "contact") return contactContent(page);
   return legalContent(page);
