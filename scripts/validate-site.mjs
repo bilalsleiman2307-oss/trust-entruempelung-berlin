@@ -2,24 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const pages = [
-  "",
-  "entruempelung-berlin",
-  "wohnungsaufloesung-berlin",
-  "haushaltsaufloesung-berlin",
-  "nachlassaufloesung-berlin",
-  "firmenaufloesung-berlin",
-  "kellerentruempelung-berlin",
-  "dachbodenentruempelung-berlin",
-  "garagenentruempelung-berlin",
-  "sperrmuellabholung-berlin",
-  "moebeltransport-berlin",
-  "kleine-umzuege-berlin",
-  "preise",
-  "kontakt",
-  "impressum",
-  "datenschutz",
-];
+const pages = [""];
+
+for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+  if (!entry.isDirectory()) continue;
+  if (entry.name.startsWith(".") || entry.name === "assets" || entry.name === "scripts") continue;
+  const indexPath = path.join(root, entry.name, "index.html");
+  if (fs.existsSync(indexPath)) pages.push(entry.name);
+}
+
+pages.sort((a, b) => {
+  if (a === "") return -1;
+  if (b === "") return 1;
+  return a.localeCompare(b);
+});
 
 const existingRoutes = new Set(pages.map((slug) => `/${slug ? `${slug}/` : ""}`));
 let ok = true;

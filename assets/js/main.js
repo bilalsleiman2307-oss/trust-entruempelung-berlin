@@ -28,7 +28,7 @@ if (mobileSubmenuButton && mobileSubmenu) {
   });
 }
 
-const animatedItems = document.querySelectorAll("main > section, .card, .method-item, .step, .cost-factor, .info-box");
+const animatedItems = document.querySelectorAll("main > section, .card, .area-card, .method-item, .step, .cost-factor, .info-box");
 
 if ("IntersectionObserver" in window) {
   animatedItems.forEach((item) => item.setAttribute("data-animate", ""));

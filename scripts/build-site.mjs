@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-16";
+const assetVersion = "design-mix-17";
 
 const nav = [
   ["Startseite", "/"],
@@ -267,6 +267,116 @@ const services = [
 
 const serviceBySlug = Object.fromEntries(services.map((service) => [service.slug, service]));
 
+const districtAreas = [
+  { name: "Mitte", slug: "mitte", context: "zentralen Altbauwohnungen, Büros und dicht bebauten Wohnhäusern" },
+  { name: "Charlottenburg", slug: "charlottenburg", context: "Altbauwohnungen, Eigentumswohnungen und Gewerbeflächen rund um City West" },
+  { name: "Prenzlauer Berg", slug: "prenzlauer-berg", context: "Altbauwohnungen, Dachgeschossen und Innenhoflagen" },
+  { name: "Friedrichshain", slug: "friedrichshain", context: "Wohnungen, Gewerbeflächen und engen Berliner Treppenhäusern" },
+  { name: "Kreuzberg", slug: "kreuzberg", context: "Altbauhäusern, Hinterhöfen und gemischten Wohn- und Gewerbeflächen" },
+  { name: "Neukölln", slug: "neukoelln", context: "Wohnungen, Kellern, Dachböden und Gewerbeeinheiten" },
+  { name: "Pankow", slug: "pankow", context: "Wohnhäusern, Familienwohnungen und Nebenräumen" },
+  { name: "Wedding", slug: "wedding", context: "Altbauwohnungen, Kellern und dicht bewohnten Mehrfamilienhäusern" },
+  { name: "Reinickendorf", slug: "reinickendorf", context: "Wohnungen, Häusern, Garagen und Nebenräumen" },
+  { name: "Spandau", slug: "spandau", context: "Wohnungen, Häusern, Kellern und Gewerbeflächen" },
+  { name: "Schöneberg", slug: "schoeneberg", context: "Altbauwohnungen, Eigentumswohnungen und Übergaben an Verwaltungen" },
+  { name: "Steglitz", slug: "steglitz", context: "Wohnungen, Häusern, Kellern und Nachlassfällen" },
+  { name: "Wilmersdorf", slug: "wilmersdorf", context: "Eigentumswohnungen, Altbauflächen und ruhigen Wohnlagen" },
+  { name: "Zehlendorf", slug: "zehlendorf", context: "Häusern, Wohnungen, Garagen und größeren Haushalten" },
+  { name: "Tempelhof", slug: "tempelhof", context: "Wohnungen, Gewerbeflächen, Kellern und Garagen" },
+  { name: "Köpenick", slug: "koepenick", context: "Wohnungen, Häusern, Gartenlauben und Nebenräumen" },
+  { name: "Treptow", slug: "treptow", context: "Wohnungen, Häusern, Kellern und Gewerbeobjekten" },
+  { name: "Lichtenberg", slug: "lichtenberg", context: "Wohnungen, Plattenbauten, Kellern und Gewerbeflächen" },
+  { name: "Marzahn", slug: "marzahn", context: "Wohnungen, Kellern, Garagen und größeren Wohnanlagen" },
+  { name: "Hellersdorf", slug: "hellersdorf", context: "Wohnungen, Häusern, Kellern und Nachlassauflösungen" },
+];
+
+const districtServiceTypes = [
+  {
+    key: "entruempelung",
+    label: "Entrümpelung",
+    slugPrefix: "entruempelung",
+    baseSlug: "entruempelung-berlin",
+    titleVerb: "professionell räumen lassen",
+    description: (area) => `Entrümpelung ${area.name}: Wohnung, Keller, Dachboden, Garage oder Gewerbefläche räumen lassen. Kostenlose Besichtigung, Festpreis nach Einschätzung und besenreine Übergabe.`,
+    intro: (area) => `Für die Entrümpelung in ${area.name} prüft Trust Entrümpelung Berlin Umfang, Zugang, Etage, Fahrstuhl, Parkmöglichkeit, Demontage und Entsorgung vorab. Gerade bei ${area.context} ist eine klare Einschätzung wichtig, damit Räumung, Transport und Übergabe zuverlässig geplant werden können.`,
+    includes: ["Wohnung, Keller, Dachboden, Garage oder Gewerbefläche", "Möbel, Hausrat, Sperrmüll und Elektrogeräte", "Transport, Entsorgung und besenreine Übergabe nach Absprache"],
+    situations: (area) => [`Wohnung oder Hausrat in ${area.name} räumen`, "Keller, Dachboden oder Garage wieder nutzbar machen", "Räume für Übergabe, Verkauf oder Sanierung vorbereiten"],
+    compareTitle: (area) => `Entrümpelung in ${area.name} mit klarer Einschätzung`,
+    compareText: (area) => `Jeder Auftrag in ${area.name} ist anders. Deshalb klären wir Menge, Zugang, Tragewege, Parkmöglichkeit und gewünschtes Übergabeziel, bevor ein Festpreis genannt wird.`,
+  },
+  {
+    key: "wohnungsaufloesung",
+    label: "Wohnungsauflösung",
+    slugPrefix: "wohnungsaufloesung",
+    baseSlug: "wohnungsaufloesung-berlin",
+    titleVerb: "Wohnung besenrein übergeben",
+    description: (area) => `Wohnungsauflösung ${area.name}: Wohnung leer räumen, Möbel und Hausrat entsorgen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Besichtigung.`,
+    intro: (area) => `Eine Wohnungsauflösung in ${area.name} braucht klare Planung, besonders wenn Vermieter, Eigentümer, Angehörige oder Hausverwaltung beteiligt sind. Trust Entrümpelung Berlin räumt Möbel, Hausrat, Sperrmüll und Nebenräume und bereitet die Wohnung auf Wunsch besenrein für die Übergabe vor.`,
+    includes: ["Komplette Wohnung, Küche, Möbel und Hausrat", "Keller, Dachboden und Nebenräume nach Absprache", "Besenreine Übergabe an Vermieter, Eigentümer oder Verwaltung"],
+    situations: (area) => [`Wohnung in ${area.name} nach Umzug oder Kündigung räumen`, "Übergabe nach Pflegeheim, Verkauf oder Vermietung vorbereiten", "Möbel, Hausrat und Sperrmüll fachgerecht entsorgen"],
+    compareTitle: (area) => `Wohnungsauflösung in ${area.name} ohne unklare Kosten`,
+    compareText: (area) => `Vor der Wohnungsauflösung in ${area.name} werden Menge, Etage, Fahrstuhl, Parkmöglichkeit, Demontage und Übergabeziel geklärt. So entsteht ein nachvollziehbarer Festpreis nach Einschätzung.`,
+  },
+  {
+    key: "nachlassaufloesung",
+    label: "Nachlassauflösung",
+    slugPrefix: "nachlassaufloesung",
+    baseSlug: "nachlassaufloesung-berlin",
+    titleVerb: "diskret räumen lassen",
+    description: (area) => `Nachlassauflösung ${area.name}: Wohnung und Hausrat nach Todesfall diskret räumen, Wertanrechnung prüfen und besenrein übergeben. Kostenlose Besichtigung.`,
+    intro: (area) => `Eine Nachlassauflösung in ${area.name} verlangt Ruhe, Diskretion und klare Absprachen. Trust Entrümpelung Berlin stimmt Schlüsselübergabe, persönliche Unterlagen, Wertgegenstände, Rückfragen und Übergabe so ab, dass Angehörige entlastet werden.`,
+    includes: ["Wohnung, Keller, Dachboden und Hausrat im Nachlass", "Sortierung nach vorheriger Absprache", "Diskrete Räumung und besenreine Übergabe nach Wunsch"],
+    situations: (area) => [`Nachlasswohnung in ${area.name} räumen`, "Angehörige wohnen nicht dauerhaft in Berlin", "Wohnung für Vermieter, Verkauf oder Verwaltung übergeben"],
+    compareTitle: (area) => `Nachlassauflösung in ${area.name} mit Ruhe und Struktur`,
+    compareText: (area) => `Bei Nachlassfällen in ${area.name} besprechen wir vorab, welche Unterlagen, Erinnerungsstücke oder Wertgegenstände gesichert werden sollen. Verwertbare Gegenstände können realistisch geprüft werden.`,
+  },
+];
+
+function districtFaq(serviceType, area) {
+  return [
+    [`Was kostet eine ${serviceType.label} in ${area.name}?`, `Die Kosten hängen von Menge, Etage, Zugang, Fahrstuhl, Parkmöglichkeit, Demontage und Entsorgung ab. Nach Fotos oder kostenloser Besichtigung erhalten Sie eine klare Einschätzung.`],
+    [`Ist eine kostenlose Besichtigung in ${area.name} möglich?`, `Ja, eine kostenlose Besichtigung in ${area.name} ist nach Absprache möglich. Fotos per WhatsApp helfen zusätzlich bei der ersten Einschätzung.`],
+    [`Wie schnell ist ein Termin in ${area.name} möglich?`, `Das hängt von Umfang, Zugang und Tourenplanung ab. Wenn die Angaben vollständig sind, können auch kurzfristige Termine geprüft werden.`],
+    ["Wird besenrein übergeben?", "Ja, die besenreine Übergabe kann direkt vereinbart werden, wenn sie für Vermieter, Eigentümer oder Verwaltung benötigt wird."],
+    ["Was passiert mit Möbeln, Hausrat und Sperrmüll?", "Möbel, Hausrat und Sperrmüll werden getragen, transportiert, getrennt und fachgerecht entsorgt. Verwertbare Gegenstände können vorab geprüft werden."],
+  ];
+}
+
+function districtLinks(area, currentKey) {
+  const siblingLinks = districtServiceTypes
+    .filter((item) => item.key !== currentKey)
+    .map((item) => `${item.slugPrefix}-${area.slug}`);
+  return [...siblingLinks, "entruempelung-berlin", "wohnungsaufloesung-berlin", "nachlassaufloesung-berlin", "preise", "kontakt"];
+}
+
+function makeDistrictPage(area, serviceType) {
+  const keyword = `${serviceType.label} ${area.name}`;
+  return {
+    slug: `${serviceType.slugPrefix}-${area.slug}`,
+    keyword,
+    short: keyword,
+    title: `${serviceType.label} ${area.name} | Trust Entrümpelung Berlin`,
+    description: serviceType.description(area),
+    h1: `${serviceType.label} ${area.name} - ${serviceType.titleVerb}`,
+    image: `${serviceType.label} in ${area.name} mit klarer Planung`,
+    intro: serviceType.intro(area),
+    includes: serviceType.includes,
+    situations: serviceType.situations(area),
+    compareTitle: serviceType.compareTitle(area),
+    compareText: serviceType.compareText(area),
+    faq: districtFaq(serviceType, area),
+    links: districtLinks(area, serviceType.key),
+    type: "district",
+    district: area.name,
+    districtSlug: area.slug,
+    serviceKey: serviceType.key,
+    baseServiceSlug: serviceType.baseSlug,
+  };
+}
+
+const districtPages = districtAreas.flatMap((area) => districtServiceTypes.map((serviceType) => makeDistrictPage(area, serviceType)));
+const districtPageBySlug = Object.fromEntries(districtPages.map((page) => [page.slug, page]));
+
 const pages = [
   {
     slug: "",
@@ -289,6 +399,7 @@ const pages = [
     ],
   },
   ...services.map((service) => ({ ...service, type: "service" })),
+  ...districtPages,
   {
     slug: "preise",
     keyword: "Entrümpelung Kosten Berlin",
@@ -544,10 +655,15 @@ function b2bHtml() {
 }
 
 function areasHtml() {
-  const areas = ["Mitte", "Wedding", "Gesundbrunnen", "Pankow", "Prenzlauer Berg", "Reinickendorf", "Charlottenburg", "Neukölln", "Kreuzberg", "Friedrichshain", "Spandau", "Brandenburg nach Absprache"];
-  return `<section id="einsatzgebiete"><div class="container">
-    <div class="section-intro"><h2>In ganz Berlin im Einsatz - angrenzendes Brandenburg nach Absprache</h2><p>Unser Schwerpunkt liegt auf Entrümpelungen in Berlin. Brandenburg bleibt ergänzend und wird nur geplant, wenn Entfernung, Umfang und Termin sinnvoll zusammenpassen.</p></div>
-    <div class="grid-4">${areas.map((area) => `<div class="cost-factor"><strong>${esc(area)}</strong><p>Entrümpelung, Wohnungsauflösung oder Sperrmüllabholung nach Absprache.</p></div>`).join("")}</div>
+  return `<section id="einsatzgebiete" class="area-map-section"><div class="container">
+    <div class="section-intro"><h2>Entrümpelung, Wohnungsauflösung und Nachlassauflösung in Berliner Bezirken</h2><p>Wählen Sie Ihren Bezirk und direkt die passende Leistung. Jede Kachel führt zu Informationen für den jeweiligen Berliner Einsatzort.</p></div>
+    <div class="area-grid">${districtAreas.map((area, index) => `<article class="area-card">
+      <div class="area-rank">${String(index + 1).padStart(2, "0")}</div>
+      <h3>${esc(area.name)}</h3>
+      <div class="area-links">
+        ${districtServiceTypes.map((serviceType) => `<a href="/${serviceType.slugPrefix}-${area.slug}/">${esc(serviceType.label)} ${esc(area.name)}</a>`).join("")}
+      </div>
+    </article>`).join("")}</div>
   </div></section>`;
 }
 
@@ -606,8 +722,8 @@ function inquiryFormHtml(page) {
 function internalLinksHtml(page) {
   const linkSlugs = page.links || ["entruempelung-berlin", "wohnungsaufloesung-berlin", "haushaltsaufloesung-berlin", "preise", "kontakt"];
   return `<section><div class="container"><div class="section-intro"><h2>Passende nächste Seiten</h2><p>Diese internen Links helfen bei der Einordnung und führen zu verwandten Leistungen in Berlin.</p></div><div class="grid-3">${linkSlugs.map((slug) => {
-    const target = serviceBySlug[slug] || pages.find((item) => item.slug === slug);
-    return `<a class="card" href="/${slug}/"><span class="card-kicker">Interner Link</span><h3>${esc(target?.keyword || slug)}</h3><p>Mehr zur passenden Leistung, Kostenlogik und Anfrage.</p></a>`;
+    const target = serviceBySlug[slug] || districtPageBySlug[slug] || pages.find((item) => item.slug === slug);
+    return `<a class="card" href="/${slug}/"><span class="card-kicker">Passend dazu</span><h3>${esc(target?.keyword || slug)}</h3><p>Mehr zur passenden Leistung, Kostenlogik und Anfrage.</p></a>`;
   }).join("")}</div></div></section>`;
 }
 
@@ -642,8 +758,8 @@ function schema(page) {
     graph.push({"@type": "WebSite", "@id": `${siteUrl}/#website`, name: "Trust Entrümpelung Berlin", url: `${siteUrl}/`});
   }
 
-  if (page.type === "service") {
-    graph.push({"@type": "Service", "@id": `${pageUrl}#service`, name: page.keyword, serviceType: page.keyword, provider: {"@id": `${siteUrl}/#localbusiness`}, areaServed: {"@type": "City", name: "Berlin"}, description: page.description});
+  if (page.type === "service" || page.type === "district") {
+    graph.push({"@type": "Service", "@id": `${pageUrl}#service`, name: page.keyword, serviceType: page.keyword, provider: {"@id": `${siteUrl}/#localbusiness`}, areaServed: {"@type": page.district ? "AdministrativeArea" : "City", name: page.district || "Berlin"}, description: page.description});
   }
 
   return `<script type="application/ld+json">${JSON.stringify({"@context": "https://schema.org", "@graph": graph})}</script>`;
@@ -732,6 +848,7 @@ function legalContent(page) {
 function bodyContent(page) {
   if (page.type === "home") return homeContent(page);
   if (page.type === "service") return serviceContent(page);
+  if (page.type === "district") return serviceContent(page);
   if (page.type === "prices") return pricesContent(page);
   if (page.type === "contact") return contactContent(page);
   return legalContent(page);

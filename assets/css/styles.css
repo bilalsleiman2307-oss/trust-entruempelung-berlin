@@ -942,6 +942,79 @@ section {
   min-height: 122px;
 }
 
+.area-map-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(11, 31, 58, .94), rgba(11, 31, 58, .82)),
+    url("/assets/hero-entruempelung.jpg") center center / cover no-repeat;
+  color: #fff;
+}
+
+.area-map-section .section-intro h2,
+.area-map-section .section-intro p {
+  color: #fff;
+}
+
+.area-map-section .section-intro p {
+  color: rgba(255, 255, 255, .84);
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.area-card {
+  position: relative;
+  min-height: 196px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  background: rgba(255, 255, 255, .95);
+  color: var(--trust-navy);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, .18);
+}
+
+.area-card h3 {
+  margin: 12px 0 16px;
+  color: var(--trust-navy);
+}
+
+.area-rank {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 32px;
+  padding: 0 8px;
+  background: var(--trust-navy);
+  color: #fff;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.area-links {
+  display: grid;
+  gap: 8px;
+}
+
+.area-links a {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid var(--trust-blue-border);
+  background: var(--trust-soft);
+  color: var(--trust-navy);
+  font-weight: 850;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.area-links a:hover {
+  background: var(--trust-navy);
+  border-color: var(--trust-navy);
+  color: #fff;
+}
+
 .info-box {
   margin-top: 22px;
   padding: 24px;
@@ -1290,7 +1363,8 @@ textarea {
 
   .grid-3,
   .grid-4,
-  .cost-grid {
+  .cost-grid,
+  .area-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1372,7 +1446,8 @@ textarea {
   .grid-3,
   .grid-4,
   .cost-grid,
-  .form-grid {
+  .form-grid,
+  .area-grid {
     grid-template-columns: 1fr;
   }
 
