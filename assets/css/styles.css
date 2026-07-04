@@ -871,6 +871,14 @@ section {
   color: var(--text-muted);
 }
 
+.legal-card pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font: inherit;
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
 .card-link {
   display: inline-flex;
   margin-top: 12px;
