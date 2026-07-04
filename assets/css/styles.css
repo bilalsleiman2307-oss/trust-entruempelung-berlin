@@ -1,15 +1,17 @@
 :root {
-  --trust-blue: #0b1f3a;
-  --trust-blue-dark: #07172a;
-  --trust-blue-soft: #eef2f6;
-  --trust-blue-border: #cbd5df;
-  --trust-navy: #0b1f3a;
+  --trust-blue: #324E66;
+  --trust-blue-dark: #263E52;
+  --trust-blue-soft: #E8EFF4;
+  --trust-blue-border: #9DB6C9;
+  --trust-navy: #324E66;
+  --trust-accent: #5F7B94;
+  --trust-accent-dark: #4B657B;
   --trust-anthracite: #171a1f;
   --trust-white: #ffffff;
-  --trust-soft: #f3f5f7;
-  --trust-line: #d8dee5;
-  --trust-cream: #f3f5f7;
-  --trust-steel: #27384d;
+  --trust-soft: #F7F4F3;
+  --trust-line: #D7E1E9;
+  --trust-cream: #E8EFF4;
+  --trust-steel: #5F7B94;
   --whatsapp: #25d366;
   --whatsapp-dark: #128c4a;
   --text-main: #171a1f;
@@ -18,7 +20,7 @@
   --container: 1180px;
   --container-wide: 1320px;
   --content-narrow: 760px;
-  --shadow: 0 16px 30px rgba(11, 31, 58, .09);
+  --shadow: 0 16px 30px rgba(50, 78, 102, .10);
 }
 
 * { box-sizing: border-box; }
@@ -31,7 +33,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text-main);
-  background: var(--trust-white);
+  background: var(--trust-soft);
   font-size: 17px;
   line-height: 1.68;
 }
@@ -78,7 +80,7 @@ img, svg {
   z-index: 100;
   background: rgba(255, 255, 255, .98);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(11, 31, 58, .12);
+  border-bottom: 1px solid rgba(50, 78, 102, .16);
 }
 
 .top-strip {
@@ -153,7 +155,7 @@ img, svg {
   color: #fff;
   background: var(--trust-blue);
   font-weight: 900;
-  box-shadow: 0 10px 24px rgba(11, 94, 215, .22);
+  box-shadow: 0 10px 24px rgba(50, 78, 102, .14);
 }
 
 .brand small {
@@ -234,7 +236,7 @@ img, svg {
   padding: 10px;
   background: #fff;
   border: 1px solid var(--trust-line);
-  box-shadow: 0 18px 40px rgba(11, 31, 58, .14);
+  box-shadow: 0 18px 40px rgba(50, 78, 102, .14);
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -319,13 +321,13 @@ img, svg {
 }
 
 .button-primary {
-  background: var(--trust-navy);
+  background: var(--trust-accent);
   color: #fff;
-  box-shadow: 0 12px 30px rgba(11, 94, 215, .22);
+  box-shadow: 0 12px 30px rgba(95, 123, 148, .24);
 }
 
 .button-primary:hover {
-  background: var(--trust-blue-dark);
+  background: var(--trust-accent-dark);
   color: #fff;
 }
 
@@ -362,7 +364,7 @@ img, svg {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(11, 31, 58, .80) 0%, rgba(11, 31, 58, .58) 46%, rgba(11, 31, 58, .22) 100%),
+    linear-gradient(90deg, rgba(50, 78, 102, .84) 0%, rgba(50, 78, 102, .62) 46%, rgba(50, 78, 102, .28) 100%),
     url("/assets/hero-entruempelung.jpg") center center / cover no-repeat,
     var(--trust-soft);
   border-top: 0;
@@ -668,7 +670,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, .18);
   background:
     linear-gradient(135deg, rgba(234, 242, 255, .20), rgba(255, 255, 255, .08)),
-    linear-gradient(160deg, rgba(11, 94, 215, .34), transparent 46%),
+    linear-gradient(160deg, rgba(95, 123, 148, .34), transparent 46%),
     repeating-linear-gradient(135deg, rgba(255, 255, 255, .12) 0 1px, transparent 1px 18px);
   padding: 28px;
   display: flex;
@@ -709,7 +711,7 @@ h3 {
 
 .quote-panel {
   background: #fff;
-  border: 1px solid rgba(11, 31, 58, .12);
+  border: 1px solid rgba(50, 78, 102, .14);
   border-radius: 2px;
   padding: 22px;
   color: var(--text-main);
@@ -842,11 +844,11 @@ section {
 
 .card {
   background: #fff;
-  border: 1px solid rgba(11, 31, 58, .10);
+  border: 1px solid rgba(50, 78, 102, .12);
   border-radius: 2px;
   padding: 24px;
-  box-shadow: 0 10px 22px rgba(11, 31, 58, .045);
-  border-top: 4px solid rgba(11, 94, 215, .18);
+  box-shadow: 0 10px 22px rgba(50, 78, 102, .06);
+  border-top: 4px solid rgba(157, 182, 201, .55);
 }
 
 .card:hover {
@@ -946,7 +948,7 @@ section {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(11, 31, 58, .94), rgba(11, 31, 58, .82)),
+    linear-gradient(90deg, rgba(50, 78, 102, .96), rgba(50, 78, 102, .84)),
     url("/assets/hero-entruempelung.jpg") center center / cover no-repeat;
   color: #fff;
 }
@@ -1128,7 +1130,7 @@ section {
 }
 
 .cta-panel {
-  background: var(--trust-navy);
+  background: var(--trust-blue);
   color: #fff;
   border-radius: 2px;
   padding: 48px;
@@ -1276,7 +1278,7 @@ textarea {
 }
 
 .site-footer {
-  background: #08182c;
+  background: var(--trust-blue);
   color: #fff;
   padding: 62px 0 34px;
 }
@@ -1469,7 +1471,7 @@ textarea {
     padding: 52px 0 58px;
     border-radius: 0;
     background:
-      linear-gradient(90deg, rgba(11, 31, 58, .82) 0%, rgba(11, 31, 58, .62) 56%, rgba(11, 31, 58, .32) 100%),
+      linear-gradient(90deg, rgba(50, 78, 102, .86) 0%, rgba(50, 78, 102, .66) 56%, rgba(50, 78, 102, .36) 100%),
       url("/assets/hero-entruempelung.jpg") center center / cover no-repeat,
       var(--trust-soft);
   }

@@ -7,7 +7,7 @@ const phone = "[Telefonnummer einsetzen]";
 const whatsapp = "[WhatsApp-Nummer einsetzen]";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-18";
+const assetVersion = "design-mix-19";
 
 const nav = [
   ["Startseite", "/"],
