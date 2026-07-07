@@ -7,7 +7,7 @@ const phone = "";
 const whatsapp = "";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-20";
+const assetVersion = "design-mix-21";
 const phoneDisplay = phone || "Kontakt per E-Mail";
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
 const legalCompany = "Trust B&M Service UG (haftungsbeschränkt)";
@@ -609,15 +609,6 @@ function mobileNavHtml() {
 
 function headerHtml() {
   return `<header class="site-header">
-    <div class="top-strip">
-      <div class="container-wide top-strip-inner">
-        <div class="top-strip-links">
-          <a href="/kontakt/">Kostenlose Besichtigung anfragen</a>
-          <a href="${whatsappHref}">WhatsApp Anfrage</a>
-          <a href="mailto:${email}">${email}</a>
-        </div>
-      </div>
-    </div>
     <div class="container-wide header-inner">
       <a class="brand" href="/" aria-label="Trust Entrümpelung Berlin Startseite">
         <img class="brand-logo" src="/assets/logo-trust-transparent.png?v=${assetVersion}" alt="Trust Entrümpelung Berlin">
