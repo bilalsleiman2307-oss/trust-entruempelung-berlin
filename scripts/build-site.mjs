@@ -3,12 +3,13 @@ import path from "node:path";
 
 const root = process.cwd();
 const siteUrl = "https://www.trust-entruempelung-berlin.de";
-const phone = "";
+const phone = "03023957118";
 const whatsapp = "";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-25";
-const phoneDisplay = phone || "Kontakt per E-Mail";
+const assetVersion = "design-mix-26";
+const phoneDisplay = "030 23957118";
+const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
 const legalCompany = "Trust B&M Service UG (haftungsbeschränkt)";
 const owner = "Bilal Sleiman";
@@ -615,7 +616,7 @@ function headerHtml() {
       </a>
       <nav class="desktop-nav" aria-label="Hauptnavigation">${desktopNavHtml()}</nav>
       <div class="header-actions">
-        <a class="button button-secondary" href="/kontakt/">Direkt anfragen</a>
+        <a class="button button-secondary" href="${phoneHref}">${phoneDisplay}</a>
         <a class="button button-primary" href="/kontakt/">Kostenlose Besichtigung</a>
       </div>
       <button class="menu-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" data-menu-button><span></span><span></span></button>
@@ -646,7 +647,7 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
           <div class="hero-actions">
             <a class="button button-primary" href="/kontakt/">Jetzt anfragen</a>
             <a class="button button-secondary" href="/kontakt/">Kostenlose Besichtigung</a>
-            <a class="button button-whatsapp" href="${whatsappHref}">WhatsApp-Anfrage</a>
+            <a class="button button-secondary" href="${phoneHref}">${phoneDisplay}</a>
           </div>
           <ul class="hero-points">
             <li>Terminplanung nach kurzer Prüfung</li>
@@ -761,7 +762,7 @@ function faqHtml(page) {
 function ctaHtml(page) {
   return `<section><div class="container"><div class="cta-panel">
     <div><h2>Kostenlose Besichtigung und Einschätzung für Ihre ${esc(page.keyword)}</h2><p>Senden Sie Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit und gewünschten Zeitraum. Wir prüfen den Umfang und melden uns mit einer klaren Einschätzung zurück. Bei größeren Aufträgen ist eine kostenlose Besichtigung möglich.</p></div>
-    <div class="cta-actions"><a class="button button-secondary" href="/kontakt/">Direkt anfragen</a><a class="button button-whatsapp" href="${whatsappHref}">WhatsApp senden</a><a class="button button-secondary" href="#anfrageformular">Formular nutzen</a></div>
+    <div class="cta-actions"><a class="button button-primary" href="${phoneHref}">Telefon ${phoneDisplay}</a><a class="button button-secondary" href="/kontakt/">Direkt anfragen</a><a class="button button-secondary" href="#anfrageformular">Formular nutzen</a></div>
   </div></div></section>`;
 }
 
@@ -815,7 +816,7 @@ function internalLinksHtml(page) {
 function footerHtml() {
   return `<footer class="site-footer"><div class="container-wide">
     <div class="footer-grid">
-      <div><img class="footer-logo" src="/assets/logo-trust-transparent.png?v=${assetVersion}" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>E-Mail: ${email}</p></div>
+      <div><img class="footer-logo" src="/assets/logo-trust-transparent.png?v=${assetVersion}" alt="Trust Entrümpelung Berlin"><div class="footer-title">Trust Entrümpelung Berlin</div><p>Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen, Sperrmüllabholungen und Firmenauflösungen in Berlin. Unser Schwerpunkt liegt auf klarer Planung, transparenter Einschätzung, fachgerechter Entsorgung und besenreiner Übergabe.</p><p>Telefon: <a href="${phoneHref}">${phoneDisplay}</a><br>E-Mail: ${email}</p></div>
       <div><div class="footer-title">Leistungen</div><a href="/entruempelung-berlin/">Entrümpelung Berlin</a><a href="/wohnungsaufloesung-berlin/">Wohnungsauflösung Berlin</a><a href="/haushaltsaufloesung-berlin/">Haushaltsauflösung Berlin</a><a href="/nachlassaufloesung-berlin/">Nachlassauflösung Berlin</a><a href="/firmenaufloesung-berlin/">Firmenauflösung Berlin</a><a href="/sperrmuellabholung-berlin/">Sperrmüllabholung Berlin</a></div>
       <div><div class="footer-title">Räume & Spezialfälle</div><a href="/kellerentruempelung-berlin/">Kellerentrümpelung Berlin</a><a href="/dachbodenentruempelung-berlin/">Dachbodenentrümpelung Berlin</a><a href="/garagenentruempelung-berlin/">Garagenentrümpelung Berlin</a><a href="/moebeltransport-berlin/">Möbeltransport Berlin</a><a href="/kleine-umzuege-berlin/">Kleine Umzüge Berlin</a><a href="/entruempelung-berlin/">Messie-Wohnung entrümpeln</a></div>
       <div><div class="footer-title">Einsatzgebiete</div><a href="/#einsatzgebiete">Berlin Mitte</a><a href="/#einsatzgebiete">Wedding</a><a href="/#einsatzgebiete">Pankow</a><a href="/#einsatzgebiete">Charlottenburg</a><a href="/#einsatzgebiete">Neukölln</a><a href="/#einsatzgebiete">Spandau</a><a href="/entruempelung-brandenburg/">Entrümpelung Brandenburg</a><a href="/wohnungsaufloesung-brandenburg/">Wohnungsauflösung Brandenburg</a><a href="/nachlassaufloesung-brandenburg/">Nachlassauflösung Brandenburg</a></div>
@@ -823,14 +824,14 @@ function footerHtml() {
     </div>
     <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Entrümpelung, Wohnungsauflösung und Sperrmüllabholung in Berlin.</span></div>
   </div></footer>
-  <div class="mobile-callbar"><a class="button button-secondary" href="/kontakt/">Anfrage senden</a><a class="button button-whatsapp" href="${whatsappHref}">WhatsApp</a></div>`;
+  <div class="mobile-callbar"><a class="button button-secondary" href="/kontakt/">Anfrage senden</a><a class="button button-primary" href="${phoneHref}">Anrufen</a></div>`;
 }
 
 function schema(page) {
   const pageUrl = absoluteUrl(page.slug);
   const graph = [
-    {"@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Trust Entrümpelung Berlin", legalName: legalCompany, url: `${siteUrl}/`, logo: `${siteUrl}/assets/logo-trust-transparent.png`, email},
-    {"@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: "Trust Entrümpelung Berlin", legalName: legalCompany, url: `${siteUrl}/`, email, address: {"@type": "PostalAddress", streetAddress, postalCode, addressLocality: city, addressCountry: "DE"}, areaServed: ["Berlin", ...brandenburgPlaces], serviceType: [...services.map((item) => item.keyword), ...brandenburgPages.map((item) => item.keyword)]},
+    {"@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Trust Entrümpelung Berlin", legalName: legalCompany, url: `${siteUrl}/`, logo: `${siteUrl}/assets/logo-trust-transparent.png`, email, telephone: phoneDisplay},
+    {"@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: "Trust Entrümpelung Berlin", legalName: legalCompany, url: `${siteUrl}/`, email, telephone: phoneDisplay, address: {"@type": "PostalAddress", streetAddress, postalCode, addressLocality: city, addressCountry: "DE"}, areaServed: ["Berlin", ...brandenburgPlaces], serviceType: [...services.map((item) => item.keyword), ...brandenburgPages.map((item) => item.keyword)]},
     {"@type": "WebPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: page.title, description: page.description},
     {"@type": "BreadcrumbList", "@id": `${pageUrl}#breadcrumb`, itemListElement: [
       {"@type": "ListItem", position: 1, name: "Startseite", item: `${siteUrl}/`},
@@ -914,7 +915,7 @@ function contactContent(page) {
   return [
     heroHtml(page, "Für den Entrümpelung Berlin Kontakt helfen Fotos, Bezirk, Etage, Fahrstuhl, Parkmöglichkeit, gewünschter Zeitraum und eine kurze Beschreibung. So kann Trust den Umfang schneller einschätzen.", "Kontaktaufnahme mit Fotos und kurzer Objektbeschreibung"),
     trustBarHtml(),
-    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Sie erreichen Trust Entrümpelung Berlin per E-Mail, Anfrageformular oder WhatsApp-Anfrage. Für eine erste Einschätzung helfen Fotos, Bezirk, Etage und eine kurze Beschreibung.</p><ul class="mini-list"><li>E-Mail: ${email}</li><li>WhatsApp-Anfrage über das Kontaktformular möglich</li><li>Kostenlose Besichtigung bei größeren Aufträgen</li><li>Einsatzgebiet: Berlin und Berliner Umland</li></ul><div class="hero-actions"><a class="button button-secondary" href="#anfrageformular">Anfrage senden</a><a class="button button-whatsapp" href="${whatsappHref}">WhatsApp-Anfrage</a></div></div><div class="card"><h2>Was wir für die Einschätzung brauchen</h2><ul class="mini-list"><li>Fotos von Räumen und Gegenständen</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
+    `<section><div class="container contact-layout"><div class="card"><h2>Kontaktwege</h2><p>Sie erreichen Trust Entrümpelung Berlin telefonisch, per E-Mail oder über das Anfrageformular. Für eine erste Einschätzung helfen Fotos, Bezirk, Etage und eine kurze Beschreibung.</p><ul class="mini-list"><li>Telefon: ${phoneDisplay}</li><li>E-Mail: ${email}</li><li>Kostenlose Besichtigung bei größeren Aufträgen</li><li>Einsatzgebiet: Berlin und Berliner Umland</li></ul><div class="hero-actions"><a class="button button-primary" href="${phoneHref}">Jetzt anrufen</a><a class="button button-secondary" href="#anfrageformular">Anfrage senden</a></div></div><div class="card"><h2>Was wir für die Einschätzung brauchen</h2><ul class="mini-list"><li>Fotos von Räumen und Gegenständen</li><li>Bezirk, Etage und Fahrstuhl</li><li>Parkmöglichkeit und Tragewege</li><li>Wunschtermin und Übergabeziel</li></ul></div></div></section>`,
     inquiryFormHtml(page),
     faqHtml(page),
     ctaHtml(page),
