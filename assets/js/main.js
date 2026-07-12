@@ -27,22 +27,3 @@ if (mobileSubmenuButton && mobileSubmenu) {
     mobileSubmenu.classList.toggle("is-open", !isOpen);
   });
 }
-
-const animatedItems = document.querySelectorAll("main > section, .card, .area-card, .method-item, .step, .cost-factor, .info-box");
-
-if ("IntersectionObserver" in window) {
-  animatedItems.forEach((item) => item.setAttribute("data-animate", ""));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  animatedItems.forEach((item) => observer.observe(item));
-} else {
-  animatedItems.forEach((item) => item.classList.add("is-visible"));
-}

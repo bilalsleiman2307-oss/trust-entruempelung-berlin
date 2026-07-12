@@ -7,7 +7,7 @@ const phone = "03023957118";
 const whatsapp = "";
 const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
-const assetVersion = "design-mix-26";
+const assetVersion = "design-mix-27";
 const phoneDisplay = "030 23957118";
 const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
@@ -648,6 +648,7 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
             <a class="button button-primary" href="/kontakt/">Jetzt anfragen</a>
             <a class="button button-secondary" href="/kontakt/">Kostenlose Besichtigung</a>
             <a class="button button-secondary" href="${phoneHref}">${phoneDisplay}</a>
+            <a class="button button-whatsapp" href="${whatsappHref}">WhatsApp-Anfrage</a>
           </div>
           <ul class="hero-points">
             <li>Terminplanung nach kurzer Prüfung</li>
@@ -824,7 +825,7 @@ function footerHtml() {
     </div>
     <div class="footer-bottom"><span>© ${new Date().getFullYear()} Trust Entrümpelung Berlin</span><span>Entrümpelung, Wohnungsauflösung und Sperrmüllabholung in Berlin.</span></div>
   </div></footer>
-  <div class="mobile-callbar"><a class="button button-secondary" href="/kontakt/">Anfrage senden</a><a class="button button-primary" href="${phoneHref}">Anrufen</a></div>`;
+  <div class="mobile-callbar"><a class="button button-secondary" href="/kontakt/">Anfrage</a><a class="button button-primary" href="${phoneHref}">Anrufen</a><a class="button button-whatsapp" href="${whatsappHref}">WhatsApp</a></div>`;
 }
 
 function schema(page) {
