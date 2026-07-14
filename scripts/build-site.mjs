@@ -9,7 +9,7 @@ const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
 // Hier die echte Formspree-Formular-ID eintragen.
 const FORM_ENDPOINT = "https://formspree.io/f/FORMULAR_ID_EINTRAGEN";
-const assetVersion = "home-intro-1";
+const assetVersion = "dropdown-fix-1";
 const phoneDisplay = "030 23957118";
 const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
