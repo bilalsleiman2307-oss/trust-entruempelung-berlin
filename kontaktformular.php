@@ -1,4 +1,5 @@
 <?php
+// Nicht mehr verwendet: GitHub Pages fuehrt PHP nicht aus. Das statische Formular nutzt den Formspree-Endpunkt in scripts/build-site.mjs.
 declare(strict_types=1);
 
 const RECIPIENT_EMAIL = 'entruempelung@trust-bm-service.de';

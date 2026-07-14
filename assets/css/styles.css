@@ -1280,6 +1280,63 @@ textarea {
   margin-top: 16px;
 }
 
+.consent-field {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  color: var(--text-main);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.consent-field input {
+  width: 18px;
+  min-height: 18px;
+  height: 18px;
+  margin-top: 2px;
+  padding: 0;
+}
+
+.form-status {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--trust-line);
+  border-radius: 2px;
+  font-weight: 800;
+}
+
+.form-status.is-visible {
+  display: block;
+}
+
+.form-status.is-success {
+  border-color: rgba(31, 125, 76, .4);
+  background: rgba(31, 125, 76, .08);
+  color: #145c37;
+}
+
+.form-status.is-error {
+  border-color: rgba(145, 47, 47, .35);
+  background: rgba(145, 47, 47, .08);
+  color: #742626;
+}
+
+.inquiry-form.is-sending {
+  cursor: progress;
+}
+
+.inquiry-form button[disabled] {
+  cursor: progress;
+  opacity: .72;
+}
+
+.form-hint {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
 .form-success {
   display: none;
   margin-top: 18px;
@@ -2107,6 +2164,17 @@ section {
   border-color: var(--trust-accent) !important;
 }
 
+.consent-field input[type="checkbox"] {
+  width: 18px !important;
+  min-height: 18px !important;
+  height: 18px !important;
+  padding: 0 !important;
+}
+
+.form-status.is-visible {
+  display: block !important;
+}
+
 .faq-item summary {
   min-height: 56px;
   color: var(--text-main) !important;
@@ -2261,8 +2329,8 @@ section {
 
   .mobile-callbar {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 6px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
     padding: 8px 10px calc(8px + env(safe-area-inset-bottom)) !important;
   }
 
@@ -2325,5 +2393,524 @@ section {
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* Startseite Redesign: Berliner Räumungsakte */
+.page-home {
+  background:
+    linear-gradient(90deg, rgba(50, 78, 102, .05) 1px, transparent 1px),
+    linear-gradient(180deg, #F7F4F3 0%, #FFFFFF 520px) !important;
+  background-size: 72px 72px, auto !important;
+}
+
+.page-home .site-header {
+  position: sticky !important;
+  background: rgba(255, 255, 255, .96) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(16, 17, 20, .10) !important;
+  box-shadow: none !important;
+}
+
+.page-home .header-inner {
+  min-height: 76px !important;
+}
+
+.page-home .desktop-nav a,
+.page-home .nav-dropdown-button {
+  color: #111418 !important;
+  font-weight: 760 !important;
+}
+
+.page-home .header-actions .button-primary {
+  background: #324E66 !important;
+  border-color: #324E66 !important;
+}
+
+.page-home .hero {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.page-home .hero-shell {
+  min-height: auto !important;
+  padding: clamp(38px, 5vw, 72px) 0 clamp(46px, 7vw, 86px) !important;
+  color: #111418 !important;
+  background:
+    radial-gradient(circle at 76% 12%, rgba(157, 182, 201, .30), transparent 300px),
+    linear-gradient(180deg, rgba(255, 255, 255, .72), rgba(247, 244, 243, .86)) !important;
+}
+
+.page-home .hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, .92fr) minmax(360px, .72fr) !important;
+  gap: clamp(28px, 4vw, 56px) !important;
+  align-items: stretch !important;
+}
+
+.page-home .hero-copy {
+  position: relative;
+  min-height: 560px;
+  justify-content: center;
+  padding: clamp(30px, 4vw, 52px) !important;
+  background: #FFFFFF;
+  border: 1px solid rgba(16, 17, 20, .10);
+  box-shadow: 0 28px 70px rgba(16, 17, 20, .10);
+}
+
+.page-home .hero-copy::before {
+  content: "Berlin direkt";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  background: #324E66;
+  color: #fff;
+  font: 760 13px/1 "Inter", "Segoe UI", Arial, sans-serif;
+  letter-spacing: .02em;
+}
+
+.page-home .hero-copy::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 92px;
+  height: 92px;
+  background:
+    linear-gradient(135deg, rgba(50, 78, 102, .16) 0 50%, transparent 50%),
+    linear-gradient(135deg, #E8EFF4 0 50%, transparent 50%);
+  border-left: 1px solid rgba(16, 17, 20, .08);
+  border-bottom: 1px solid rgba(16, 17, 20, .08);
+}
+
+.page-home .hero-shell h1,
+.page-home .hero-shell h1 span,
+.page-home .hero-shell h2,
+.page-home .hero-shell h3,
+.page-home .hero-shell .lead,
+.page-home .hero-shell .hero-points,
+.page-home .hero-shell .hero-points li {
+  color: #111418 !important;
+  text-shadow: none !important;
+}
+
+.page-home .hero-shell h1 {
+  max-width: 650px !important;
+  margin-top: 34px !important;
+  font-size: clamp(42px, 5.6vw, 78px) !important;
+  line-height: .94 !important;
+  font-weight: 860 !important;
+  letter-spacing: -.01em !important;
+}
+
+.page-home .hero-shell .lead {
+  max-width: 600px !important;
+  margin-top: 24px !important;
+  color: #33404A !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  line-height: 1.66 !important;
+}
+
+.page-home .hero-actions {
+  order: 3 !important;
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 28px !important;
+}
+
+.page-home .hero-actions .button {
+  min-height: 50px !important;
+  border-radius: 0 !important;
+}
+
+.page-home .hero-points {
+  order: 4 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  max-width: 100% !important;
+  margin-top: 34px !important;
+  border-top: 1px solid rgba(16, 17, 20, .13);
+  border-left: 1px solid rgba(16, 17, 20, .13);
+}
+
+.page-home .hero-points li {
+  min-height: 76px !important;
+  padding: 14px 14px 14px 42px !important;
+  border: 0 !important;
+  border-right: 1px solid rgba(16, 17, 20, .13) !important;
+  border-bottom: 1px solid rgba(16, 17, 20, .13) !important;
+  border-radius: 0 !important;
+  background: #FAFBFC !important;
+  color: #111418 !important;
+  font-size: 13px !important;
+  line-height: 1.28 !important;
+}
+
+.page-home .hero-points li::before {
+  left: 14px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background: #324E66 !important;
+}
+
+.page-home .hero-points li::after {
+  left: 19px !important;
+  border-color: #fff !important;
+}
+
+.page-home .hero .quote-panel {
+  position: relative;
+  display: grid !important;
+  align-content: end;
+  min-height: 560px;
+  padding: 0 !important;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(16, 17, 20, .02) 0%, rgba(16, 17, 20, .62) 58%, rgba(16, 17, 20, .80) 100%),
+    url("/assets/hero-entruempelung.jpg") center center / cover no-repeat;
+  border: 1px solid rgba(16, 17, 20, .10);
+  border-radius: 0 !important;
+  box-shadow: 0 28px 70px rgba(16, 17, 20, .12);
+}
+
+.page-home .hero .quote-panel::before {
+  content: "Räumungsakte";
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 1;
+  padding: 9px 12px;
+  background: #FFFFFF;
+  color: #324E66;
+  font: 820 13px/1 "Inter", "Segoe UI", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.page-home .hero .quote-panel h2,
+.page-home .hero .quote-panel p,
+.page-home .hero .quote-panel li,
+.page-home .hero .quote-panel .hero-photo-note {
+  color: #fff !important;
+}
+
+.page-home .hero .quote-panel h2,
+.page-home .hero .quote-panel p,
+.page-home .hero .quote-panel .quote-steps,
+.page-home .hero .quote-panel .button,
+.page-home .hero .quote-panel .hero-photo-note {
+  position: relative;
+  z-index: 1;
+  margin-left: clamp(22px, 3vw, 36px);
+  margin-right: clamp(22px, 3vw, 36px);
+}
+
+.page-home .hero .quote-panel h2 {
+  max-width: 390px !important;
+  margin-bottom: 10px;
+  font-size: clamp(27px, 3vw, 40px) !important;
+  line-height: 1 !important;
+}
+
+.page-home .hero .quote-panel p {
+  max-width: 410px;
+  margin-top: 0;
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+.page-home .quote-steps {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px !important;
+  margin-bottom: 20px !important;
+  padding: 0;
+  list-style: none;
+}
+
+.page-home .quote-steps li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.page-home .quote-steps span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 28px;
+  background: #fff;
+  color: #324E66;
+  font-weight: 850;
+}
+
+.page-home .hero .quote-panel .button {
+  width: fit-content;
+  margin-bottom: 18px;
+  border-radius: 0 !important;
+}
+
+.page-home .hero-photo-note {
+  margin-bottom: 26px;
+  padding: 10px 0 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, .24);
+  background: transparent !important;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .76) !important;
+}
+
+.page-home .seo-intro {
+  padding: clamp(54px, 7vw, 96px) 0 !important;
+  background: #FFFFFF !important;
+}
+
+.page-home .seo-intro-box {
+  display: grid;
+  grid-template-columns: minmax(260px, .56fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 70px);
+  max-width: 1180px;
+  text-align: left;
+  align-items: start;
+}
+
+.page-home .seo-intro-box h2 {
+  position: sticky;
+  top: 110px;
+  max-width: 430px !important;
+  padding-left: 20px;
+  border-left: 8px solid #324E66;
+  font-size: clamp(30px, 3.2vw, 48px) !important;
+  line-height: 1.03 !important;
+}
+
+.page-home .seo-intro-box p {
+  max-width: 720px;
+  margin: 0 0 18px !important;
+  font-size: 17px;
+  color: #33404A !important;
+}
+
+.page-home .section-soft.direct-answers,
+.page-home #leistungen.section-soft,
+.page-home .home-method {
+  background: #F7F4F3 !important;
+}
+
+.page-home .direct-answers .card,
+.page-home #leistungen .card {
+  box-shadow: none !important;
+  border: 1px solid rgba(16, 17, 20, .12) !important;
+  border-top: 5px solid #324E66 !important;
+  background: #FFFFFF !important;
+  border-radius: 0 !important;
+}
+
+.page-home .direct-answers .card-kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 8px;
+  background: #E8EFF4 !important;
+  color: #324E66;
+}
+
+.page-home #leistungen .grid-3 {
+  align-items: stretch;
+}
+
+.page-home #leistungen .card {
+  display: grid;
+  align-content: start;
+  min-height: 360px;
+}
+
+.page-home #leistungen .card::before {
+  content: "Leistung";
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 5px 8px;
+  background: #E8EFF4 !important;
+  color: #324E66;
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.page-home #leistungen .card .card-link {
+  align-self: end;
+  margin-top: 22px;
+}
+
+.page-home .home-method .method-band {
+  position: relative;
+  max-width: 1180px;
+  gap: 14px !important;
+}
+
+.page-home .home-method .method-item {
+  min-height: 236px !important;
+  background: #324E66 !important;
+  border-radius: 0 !important;
+  text-align: left;
+}
+
+.page-home .home-method .method-icon {
+  margin: 0 0 22px;
+}
+
+@media (max-width: 1080px) {
+  .page-home .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-home .hero-copy,
+  .page-home .hero .quote-panel {
+    min-height: auto;
+  }
+
+  .page-home .hero .quote-panel {
+    min-height: 460px;
+  }
+
+  .page-home .seo-intro-box {
+    grid-template-columns: 1fr;
+  }
+
+  .page-home .seo-intro-box h2 {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-home .hero-shell {
+    padding: 22px 0 44px !important;
+  }
+
+  .page-home .hero-copy {
+    padding: 28px 22px !important;
+  }
+
+  .page-home .hero-copy::after {
+    width: 58px;
+    height: 58px;
+  }
+
+  .page-home .hero-shell h1 {
+    margin-top: 42px !important;
+    max-width: 100% !important;
+    font-size: clamp(34px, 8.5vw, 44px) !important;
+    line-height: 1 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .page-home .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-home .hero-points {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-home .hero .quote-panel {
+    min-height: 420px;
+  }
+
+  .page-home .seo-intro-box {
+    gap: 22px;
+  }
+
+  .page-home #leistungen .card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-home .container,
+  .page-home .container-wide {
+    width: min(100% - 20px, var(--container)) !important;
+  }
+
+  .page-home .hero-copy {
+    overflow: hidden;
+  }
+
+  .page-home .hero-shell h1 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 10.2vw, 39px) !important;
+    line-height: 1 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .page-home .hero-shell .lead {
+    max-width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  .page-home .hero-points {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-home .hero-points li {
+    min-height: 58px !important;
+    padding: 12px 12px 12px 42px !important;
+    font-size: 13px !important;
+  }
+
+  .page-home .hero .quote-panel {
+    min-height: 520px;
+    align-content: end;
+  }
+
+  .page-home .hero .quote-panel::before {
+    top: 16px;
+    right: 16px;
+    font-size: 11px;
+  }
+
+  .page-home .hero .quote-panel h2,
+  .page-home .hero .quote-panel p,
+  .page-home .hero .quote-panel .quote-steps,
+  .page-home .hero .quote-panel .button,
+  .page-home .hero .quote-panel .hero-photo-note {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .page-home .hero .quote-panel h2 {
+    font-size: 30px !important;
+  }
+
+  .page-home .quote-steps li {
+    min-height: 44px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 390px) {
+  .page-home .hero-copy {
+    padding: 26px 18px !important;
+  }
+
+  .page-home .hero-shell h1 {
+    font-size: 36px !important;
+  }
+
+  .page-home .hero-points {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-home .quote-steps li {
+    grid-template-columns: 28px minmax(0, 1fr);
   }
 }

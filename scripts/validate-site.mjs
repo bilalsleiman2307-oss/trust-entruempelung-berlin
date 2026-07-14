@@ -40,6 +40,7 @@ for (const slug of pages) {
   for (const match of html.matchAll(/href="(\/[^\t\n\r"#?]*)/g)) {
     const href = match[1];
     if (href.startsWith("/assets/")) continue;
+    if (fs.existsSync(path.join(root, href.replace(/^\//, "")))) continue;
     if (!existingRoutes.has(href)) {
       console.log(`Missing internal link: ${route} -> ${href}`);
       ok = false;
