@@ -9,7 +9,7 @@ const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
 // Hier die echte Formspree-Formular-ID eintragen.
 const FORM_ENDPOINT = "https://formspree.io/f/FORMULAR_ID_EINTRAGEN";
-const assetVersion = "dropdown-fix-1";
+const assetVersion = "card-label-cleanup-1";
 const phoneDisplay = "030 23957118";
 const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
@@ -1136,7 +1136,7 @@ function directAnswersHtml(page) {
   if (!data) return "";
   return `<section class="section-soft direct-answers"><div class="container">
     <div class="section-intro section-intro-center"><h2>${esc(data.title)}</h2><p>${esc(data.intro)}</p></div>
-    <div class="grid-3">${data.answers.map(([question, answer]) => `<article class="card"><span class="card-kicker">Kurz beantwortet</span><h3>${esc(question)}</h3><p>${esc(answer)}</p></article>`).join("")}</div>
+    <div class="grid-3">${data.answers.map(([question, answer]) => `<article class="card"><h3>${esc(question)}</h3><p>${esc(answer)}</p></article>`).join("")}</div>
   </div></section>`;
 }
 
@@ -1240,8 +1240,8 @@ function internalLinksHtml(page) {
   const linkIntro = page.type === "brandenburg" ? "Diese Seiten helfen bei der Einordnung und führen zu passenden Leistungen für Berlin und das Berliner Umland." : "Diese Seiten helfen bei der Einordnung und führen zu verwandten Leistungen in Berlin.";
   return `<section><div class="container"><div class="section-intro"><h2>Passende nächste Seiten</h2><p>${linkIntro}</p></div><div class="grid-3">${linkSlugs.map((slug) => {
     const target = serviceBySlug[slug] || districtPageBySlug[slug] || brandenburgPageBySlug[slug] || pages.find((item) => item.slug === slug);
-    return `<a class="card" href="/${slug}/"><span class="card-kicker">Weitere Leistung</span><h3>${esc(target?.keyword || slug)}</h3><p>Ablauf, Einschätzung und Anfrage für diese Leistung ansehen.</p></a>`;
-  }).join("")}<a class="card" href="#faq"><span class="card-kicker">Fragen</span><h3>FAQ zu ${esc(page.keyword)}</h3><p>Antworten zu Ablauf, Kosten, Besichtigung und Übergabe ansehen.</p></a></div></div></section>`;
+    return `<a class="card" href="/${slug}/"><h3>${esc(target?.keyword || slug)}</h3><p>Mehr Informationen zu Ablauf, Einschätzung und Anfrage ansehen.</p></a>`;
+  }).join("")}<a class="card" href="#faq"><h3>FAQ zu ${esc(page.keyword)}</h3><p>Antworten zu Ablauf, Kosten, Besichtigung und Übergabe ansehen.</p></a></div></div></section>`;
 }
 
 function footerHtml() {
@@ -1342,7 +1342,7 @@ function serviceContent(page) {
     trustBarHtml(),
     companyTrustHtml(page),
     directAnswersHtml(page),
-    `<section id="leistungen"><div class="container"><div class="section-intro"><h2>Professionelle ${esc(page.keyword)}: Was wir übernehmen</h2><p>${esc(page.keyword)} wird so geplant, dass Umfang, Zugang, Transport, Entsorgung und Übergabe zusammenpassen.</p></div><div class="grid-3">${page.includes.map((item) => `<div class="card"><span class="card-kicker">Leistungsbereich</span><h3>${esc(item)}</h3><p>Der Umfang wird vor Beginn sauber aufgenommen, damit Angebot, Team und Zeitfenster zum Auftrag passen.</p></div>`).join("")}</div></div></section>`,
+    `<section id="leistungen"><div class="container"><div class="section-intro"><h2>Professionelle ${esc(page.keyword)}: Was wir übernehmen</h2><p>${esc(page.keyword)} wird so geplant, dass Umfang, Zugang, Transport, Entsorgung und Übergabe zusammenpassen.</p></div><div class="grid-3">${page.includes.map((item) => `<div class="card"><h3>${esc(item)}</h3><p>Der Umfang wird vor Beginn sauber aufgenommen, damit Angebot, Team und Zeitfenster zum Auftrag passen.</p></div>`).join("")}</div></div></section>`,
     `<section class="section-blue"><div class="container"><div class="section-intro"><h2>Typische Situationen für ${esc(page.keyword)}</h2><p>Viele Anfragen entstehen durch Auszug, Übergabe, Nachlass, Sanierung oder Platzmangel. Entscheidend ist eine klare Einschätzung vor Beginn.</p></div><div class="grid-3">${page.situations.map((item) => `<div class="card"><h3>${esc(item)}</h3><p>Zugang, Etage, Tragewege, Parkmöglichkeit und Entsorgung werden passend zu dieser Situation geplant.</p></div>`).join("")}</div></div></section>`,
     processHtml(page.keyword),
     costsHtml(page.keyword),
