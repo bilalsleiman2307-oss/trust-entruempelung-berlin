@@ -2399,3 +2399,80 @@ section {
   }
 }
 
+.page-home .seo-intro {
+  padding: clamp(64px, 7vw, 96px) 0 !important;
+  background: #fff !important;
+}
+
+.page-home .seo-intro-box {
+  max-width: 1216px !important;
+  margin: 0 auto !important;
+  text-align: left !important;
+}
+
+.page-home .seo-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  color: #26323D;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.page-home .seo-kicker::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  background: var(--trust-accent);
+}
+
+.page-home .seo-intro-box h2 {
+  max-width: 920px !important;
+  margin: 0 0 20px !important;
+  color: #05080D !important;
+  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif !important;
+  font-size: clamp(31px, 3vw, 44px) !important;
+  line-height: 1.16 !important;
+  font-weight: 850 !important;
+  letter-spacing: 0 !important;
+}
+
+.page-home .seo-intro-box p {
+  max-width: 1160px !important;
+  margin: 0 0 22px !important;
+  color: #111820 !important;
+  font-size: clamp(17px, 1.35vw, 22px) !important;
+  line-height: 1.55 !important;
+  font-weight: 430 !important;
+}
+
+.page-home .seo-intro-box p + p {
+  margin-top: 26px !important;
+  font-size: clamp(16px, 1.02vw, 18px) !important;
+  line-height: 1.58 !important;
+}
+
+.page-home .seo-intro-box strong {
+  color: #05080D;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .page-home .seo-intro {
+    padding: 50px 0 56px !important;
+  }
+
+  .page-home .seo-intro-box h2 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+  }
+
+  .page-home .seo-intro-box p,
+  .page-home .seo-intro-box p + p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+}
+

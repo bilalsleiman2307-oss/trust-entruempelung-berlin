@@ -9,7 +9,7 @@ const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
 // Hier die echte Formspree-Formular-ID eintragen.
 const FORM_ENDPOINT = "https://formspree.io/f/FORMULAR_ID_EINTRAGEN";
-const assetVersion = "home-restore-1";
+const assetVersion = "home-intro-1";
 const phoneDisplay = "030 23957118";
 const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
@@ -1032,6 +1032,7 @@ function trustBarHtml() {
 
 function homeSeoIntroHtml() {
   return `<section class="seo-intro"><div class="container seo-intro-box">
+    <span class="seo-kicker">Willkommen bei Trust Entrümpelung Berlin</span>
     <h2>Entrümpelung Berlin - Wohnungsauflösung, Haushaltsauflösung & Sperrmüllabholung</h2>
     <p>Sie suchen eine zuverlässige Entrümpelungsfirma in Berlin, die Wohnungen, Keller, Dachböden, Garagen oder Gewerbeflächen sauber räumt? Trust Entrümpelung Berlin übernimmt Entrümpelungen, Wohnungsauflösungen, Haushaltsauflösungen und Sperrmüllabholungen in ganz Berlin - strukturiert, diskret und mit klarer Einschätzung vor Beginn der Arbeiten.</p>
     <p>Ob einzelne Räume entrümpelt werden sollen, eine komplette Wohnung leer geräumt werden muss oder eine besenreine Übergabe nach Umzug, Todesfall oder Haushaltsauflösung ansteht: Wir prüfen den Umfang, klären Zugang, Etage, Parkmöglichkeit, Demontage und Entsorgung und erstellen auf Wunsch einen Festpreis nach Besichtigung. So wissen Sie vorher, was gemacht wird, welche Kosten entstehen und wann die Räume wieder frei übergeben werden können.</p>
