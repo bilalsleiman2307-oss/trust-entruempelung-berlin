@@ -9,7 +9,7 @@ const email = "entruempelung@trust-bm-service.de";
 const formEmail = "entruempelung@trust-bm-service.de";
 // Hier die echte Formspree-Formular-ID eintragen.
 const FORM_ENDPOINT = "https://formspree.io/f/FORMULAR_ID_EINTRAGEN";
-const assetVersion = "perf-1";
+const assetVersion = "home-restore-1";
 const phoneDisplay = "030 23957118";
 const phoneHref = `tel:${phone}`;
 const whatsappHref = whatsapp ? `https://wa.me/${whatsapp}` : "/kontakt/";
@@ -987,6 +987,18 @@ function breadcrumbHtml(page) {
 
 function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenreiner Übergabe") {
   const heroTitle = page.slug ? page.keyword : "Entrümpelung Berlin";
+  const quotePanel = page.type === "home" ? "" : `
+        <aside class="quote-panel" aria-label="Kostenlose Besichtigung und Einschätzung">
+          <h2>Kostenlose Besichtigung vorbereiten</h2>
+          <p>Fotos und Eckdaten helfen für eine erste Orientierung. Bei größeren Aufträgen prüfen wir den Umfang vor Ort.</p>
+          <ol class="quote-steps">
+            <li><span>1</span>Bezirk, Etage und Fahrstuhl nennen</li>
+            <li><span>2</span>Fotos von Räumen und Gegenständen senden</li>
+            <li><span>3</span>Umfang prüfen und Termin abstimmen</li>
+          </ol>
+          <a class="button button-primary" href="/kontakt/">Anfrage starten</a>
+          <div class="hero-photo-note">${esc(image)} · klare Einschätzung vor Beginn</div>
+        </aside>`;
   return `<section class="hero">
     <div class="hero-shell">
       <div class="container-wide hero-grid">
@@ -1008,17 +1020,7 @@ function heroHtml(page, text, image = "Heller Berliner Altbauflur nach besenrein
             <li>Besenreine Übergabe möglich</li>
           </ul>
         </div>
-        <aside class="quote-panel" aria-label="Kostenlose Besichtigung und Einschätzung">
-          <h2>Kostenlose Besichtigung vorbereiten</h2>
-          <p>Fotos und Eckdaten helfen für eine erste Orientierung. Bei größeren Aufträgen prüfen wir den Umfang vor Ort.</p>
-          <ol class="quote-steps">
-            <li><span>1</span>Bezirk, Etage und Fahrstuhl nennen</li>
-            <li><span>2</span>Fotos von Räumen und Gegenständen senden</li>
-            <li><span>3</span>Umfang prüfen und Termin abstimmen</li>
-          </ol>
-          <a class="button button-primary" href="/kontakt/">Anfrage starten</a>
-          <div class="hero-photo-note">${esc(image)} · klare Einschätzung vor Beginn</div>
-        </aside>
+${quotePanel}
       </div>
     </div>
   </section>`;
